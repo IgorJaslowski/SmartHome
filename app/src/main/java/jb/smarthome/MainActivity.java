@@ -14,10 +14,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String[] logs;
+
+    List<LogItem> logItems;
+    ListView logListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +37,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         GridView grid = (GridView) findViewById(R.id.gridview) ;
-
         grid.setAdapter(new ImageAdapter(this));
-
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -38,6 +45,22 @@ public class MainActivity extends AppCompatActivity
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        logItems = new ArrayList<LogItem>();
+        logs = getResources().getStringArray(R.array.Logs);
+
+        for (int i =logs.length-1; i>=0;i--)
+        {
+            LogItem logItem = new LogItem(i,logs[i]);
+            logItems.add(logItem);
+        }
+
+        logListView = (ListView) findViewById(R.id.log_list_view);
+        LogAdapter adapter = new LogAdapter(this,logItems);
+        logListView.setAdapter(adapter);
+
+
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -106,4 +129,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

@@ -33,7 +33,16 @@
         android:stretchMode="columnWidth"
 
         android:verticalSpacing="10dp" />
+
+    <ListView
+        android:id="@+id/log_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="430dp" />
+
     <include layout="@layout/content_main" />
+
+
 
 
 </android.support.design.widget.CoordinatorLayout>

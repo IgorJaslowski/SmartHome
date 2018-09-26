@@ -20,4 +20,14 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Logs -->
+    <string-array name="Logs">
+        <item>log 1</item>
+        <item>log 2</item>
+        <item>log 3</item>
+        <item>log 4</item>
+        <item>log 5</item>
+        <item>log 6</item>
+    </string-array>
 </resources>
