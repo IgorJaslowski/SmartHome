@@ -1,5 +1,6 @@
 package jb.smarthome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,32 +38,43 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        GridView grid = (GridView) findViewById(R.id.gridview) ;
+        GridView grid = (GridView) findViewById(R.id.gridview);
         grid.setAdapter(new ImageAdapter(this));
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
                 Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                switch (position) {
+                    case 0:
+                        intent = new Intent(getApplicationContext(), CamActivity.class);
+                        break;
+                    case 1:
+                        intent  = new Intent(getApplicationContext(), LoginActivity.class);
+                        break;
+                    case 2:
+                        intent  = new Intent(getApplicationContext(), LoginActivity.class);
+                        break;
+                    case 3:
+                        intent  = new Intent(getApplicationContext(), LoginActivity.class);
+                        break;
+                }
+                startActivity(intent);
             }
         });
 
         logItems = new ArrayList<LogItem>();
         logs = getResources().getStringArray(R.array.Logs);
 
-        for (int i =logs.length-1; i>=0;i--)
-        {
-            LogItem logItem = new LogItem(i,logs[i]);
+        for (int i = logs.length - 1; i >= 0; i--) {
+            LogItem logItem = new LogItem(i, logs[i]);
             logItems.add(logItem);
         }
 
         logListView = (ListView) findViewById(R.id.log_list_view);
-        LogAdapter adapter = new LogAdapter(this,logItems);
+        LogAdapter adapter = new LogAdapter(this, logItems);
         logListView.setAdapter(adapter);
-
-
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
