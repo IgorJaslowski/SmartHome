@@ -1,4 +1,4 @@
-package jb.smarthome;
+package jb.smarthome.adapter;
 
 import android.content.Context;
 import android.graphics.ColorFilter;
@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-class ImageAdapter extends BaseAdapter {
+import jb.smarthome.R;
+
+public class ImageAdapter extends BaseAdapter {
     private Context mContext;
 
     public ImageAdapter(Context c) {

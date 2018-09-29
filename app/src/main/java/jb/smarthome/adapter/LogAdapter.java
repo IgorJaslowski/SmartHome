@@ -1,4 +1,4 @@
-package jb.smarthome;
+package jb.smarthome.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+
+import jb.smarthome.LogItem;
+import jb.smarthome.R;
 
 public class LogAdapter extends BaseAdapter {
     private Context context;
