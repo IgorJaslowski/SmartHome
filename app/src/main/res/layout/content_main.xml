@@ -11,9 +11,10 @@
 
     <ListView
         android:id="@+id/log_list_view"
-        android:layout_width="347dp"
+        android:layout_width="wrap_content"
         android:layout_height="121dp"
 
+        android:paddingLeft="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,14 +22,16 @@
 
     <GridView
         android:id="@+id/gridview"
-        android:layout_width="368dp"
+        android:layout_width="wrap_content"
         android:layout_height="345dp"
-        android:layout_marginTop="60dp"
-
+        android:layout_marginTop="68dp"
         android:gravity="center"
+        android:horizontalSpacing="12dp"
         android:numColumns="2"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
+        android:verticalSpacing="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

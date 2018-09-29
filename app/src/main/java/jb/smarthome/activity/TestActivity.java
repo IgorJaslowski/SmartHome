@@ -17,7 +17,7 @@ public class TestActivity extends Activity {
             Intent intent = new Intent();
             switch (item.getItemId()){
                 case R.id.navigation_home:{
-                    startActivity(new Intent(getApplicationContext(), TestActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     break;
 
                 }

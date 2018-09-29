@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent();
             switch (item.getItemId()){
                 case R.id.navigation_home:{
-                    startActivity(new Intent(getApplicationContext(), TestActivity.class));
+
                     break;
 
                 }
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         GridView grid = (GridView) findViewById(R.id.gridview);
+
         grid.setAdapter(new ImageAdapter(this));
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -84,16 +85,16 @@ public class MainActivity extends AppCompatActivity
 
                 switch (position) {
                     case 0:
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 1:
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 2:
-                        startActivity(new Intent(getApplicationContext(), TodoActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 3:
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                 }
 
