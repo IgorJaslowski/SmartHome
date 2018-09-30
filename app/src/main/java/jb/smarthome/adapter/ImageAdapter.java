@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import jb.smarthome.R;
@@ -40,10 +42,9 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-//            imageView.setLayoutParams(new ViewGroup.LayoutParams(, 450));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(15, 25, 15, 25);
-
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(GridView.AUTO_FIT, 450));
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            imageView.setPadding(25, 25, 25, 25);
             imageView.setColorFilter(mContext.getColor(R.color.colorGridIcon));
             imageView.setBackgroundColor(mContext.getColor(R.color.colorGridBackground));
 
@@ -61,8 +62,8 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private static Integer[] icons = {
-          R.drawable.ic_menu_camera,
-            R.drawable.ic_menu_gallery,
+            R.mipmap.baseline_highlight_black_24dp,
+            R.drawable.ic_menu_camera,
             R.drawable.ic_menu_share,
             R.drawable.ic_menu_manage
 };
