@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
                         startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 1:
-                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
+                        startActivity(new Intent(getApplicationContext(), TemperatureActivity.class));
                         break;
                     case 2:
                         startActivity(new Intent(getApplicationContext(), LightActivity.class));
