@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="white">#FFF</color>
     <color name="colorGridIcon">#CABFD4</color>
     <color name="colorGridBackground">#047527</color>
     <color name="colorPrimary">#3F51B5</color>

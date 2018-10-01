@@ -1,25 +1,34 @@
-package jb.smarthome;
+package jb.smarthome.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jb.smarthome.LogItem;
+
+import jb.smarthome.R;
+import jb.smarthome.adapter.ImageAdapter;
+import jb.smarthome.adapter.LogAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,37 +39,65 @@ public class MainActivity extends AppCompatActivity
     ListView logListView;
 
 
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent intent = new Intent();
+            switch (item.getItemId()){
+                case R.id.navigation_home:{
+
+                    break;
+
+                }
+                case R.id.navigation_dashboard:{
+                    startActivity(new Intent(getApplicationContext(), TestActivity2.class));
+                    break;
+                }
+                case R.id.navigation_notification:{
+                    startActivity(new Intent(getApplicationContext(), TestActivity3.class));
+                    break;
+                }
+            }
+            return false;
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         GridView grid = (GridView) findViewById(R.id.gridview);
+
         grid.setAdapter(new ImageAdapter(this));
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
+
                 switch (position) {
                     case 0:
-                        intent = new Intent(getApplicationContext(), CamActivity.class);
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 1:
-                        intent  = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 2:
-                        intent  = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                     case 3:
-                        intent  = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(new Intent(getApplicationContext(), LightActivity.class));
                         break;
                 }
-                startActivity(intent);
+
             }
         });
 
@@ -81,10 +118,16 @@ public class MainActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+
+
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation_bottom);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     @Override
@@ -107,7 +150,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the HomeFragment/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 

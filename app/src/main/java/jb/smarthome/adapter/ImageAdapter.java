@@ -1,4 +1,4 @@
-package jb.smarthome;
+package jb.smarthome.adapter;
 
 import android.content.Context;
 import android.graphics.ColorFilter;
@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-class ImageAdapter extends BaseAdapter {
+import jb.smarthome.R;
+
+public class ImageAdapter extends BaseAdapter {
     private Context mContext;
 
     public ImageAdapter(Context c) {
@@ -38,9 +40,10 @@ class ImageAdapter extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(400, 400));
+//            imageView.setLayoutParams(new ViewGroup.LayoutParams(, 450));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(0, 25, 0, 25);
+            imageView.setPadding(15, 25, 15, 25);
+
             imageView.setColorFilter(mContext.getColor(R.color.colorGridIcon));
             imageView.setBackgroundColor(mContext.getColor(R.color.colorGridBackground));
 

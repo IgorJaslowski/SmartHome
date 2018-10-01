@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@mipmap/baseline_home_black_24dp"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@mipmap/baseline_dashboard_black_24dp"
+        android:title="@string/dashboard" />
+    <item
+        android:id="@+id/navigation_notification"
+        android:icon="@mipmap/baseline_notification_important_black_24dp"
+        android:title="@string/notification" />
+</menu>
