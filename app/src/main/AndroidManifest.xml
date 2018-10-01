@@ -33,7 +33,8 @@
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.TestActivity2" />
         <activity android:name=".activity.TestActivity3" />
-        <activity android:name=".activity.LightActivity"></activity>
+        <activity android:name=".activity.LightActivity" />
+        <activity android:name=".activity.TemperatureActivity"></activity>
     </application>
 
 </manifest>
