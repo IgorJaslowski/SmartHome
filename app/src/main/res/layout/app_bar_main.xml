@@ -21,10 +21,33 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        layout="@layout/content_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/nav_top"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="56dp"
+        app:menu="@menu/navigation"
+        app:itemBackground="@color/colorBackgroundNavBar"
+        app:itemIconTint="@color/colorIconNavBar"
+        app:itemTextColor="@color/colorIconNavBar"
+        >
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+    <!--<include-->
+        <!--layout="@layout/content_main"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="597dp" />-->
 
 
 </android.support.design.widget.CoordinatorLayout>

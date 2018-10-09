@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Global colors-->
     <color name="white">#FFF</color>
-    <color name="colorGridIcon">#CABFD4</color>
-    <color name="colorGridBackground">#047527</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorTitle">#00aeff</color>
+    <color name="colorTitleBackground">#1b1d2a</color>
+    <!--Nav bar colors-->
+    <color name="colorBackgroundNavBar">#0f9d58</color>
+    <color name="colorIconNavBar">#1B1D2A</color>
+    <color name="colorBackgroundMenuHeader">#757575</color>
+    <color name="colorBackgroundMenuButton">#1c1c1c</color>
+
+
+    <!-- Grid colors-->
+    <color name="colorGridIcon">#1B1D2A</color>
+    <color name="colorGridBackground">#FFF</color>
+
+
+
 </resources>
