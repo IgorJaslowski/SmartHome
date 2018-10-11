@@ -7,11 +7,13 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorTitle">#00aeff</color>
     <color name="colorTitleBackground">#1b1d2a</color>
+    <color name="colorAppbar">#1B1D2A</color>
     <!--Nav bar colors-->
     <color name="colorBackgroundNavBar">#0f9d58</color>
     <color name="colorIconNavBar">#1B1D2A</color>
     <color name="colorBackgroundMenuHeader">#757575</color>
     <color name="colorBackgroundMenuButton">#1c1c1c</color>
+    <color name="colorBurgerMenu">#a3a3a3</color>
 
 
     <!-- Grid colors-->

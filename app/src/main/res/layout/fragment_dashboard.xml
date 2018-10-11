@@ -5,118 +5,113 @@
     android:layout_height="match_parent"
     tools:context=".activity.DashboardFragment">
 
-
-    <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".activity.MainActivity"
-        tools:layout_editor_absoluteY="81dp"
-        tools:showIn="@layout/app_bar_main">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
 
         <RelativeLayout
             android:id="@+id/gridviewLayout"
             android:layout_width="match_parent"
-            android:layout_height="473dp"
+            android:layout_height="match_parent"
 
             tools:layout_editor_absoluteY="4dp">
 
             <GridView
                 android:id="@+id/gridview"
                 android:layout_width="wrap_content"
-                android:layout_height="393dp"
-                android:layout_alignParentBottom="true"
+                android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:gravity="center"
                 android:horizontalSpacing="12dp"
                 android:numColumns="2"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
                 android:stretchMode="columnWidth"
-                android:verticalSpacing="12dp" />
+                android:verticalSpacing="12dp">
 
-            <TextView
-                android:id="@+id/gridViewText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/gridViewText3"
-                android:layout_marginTop="170dp"
-                android:gravity="center"
-                android:text="text 1"
-                android:textColor="#000000" />
+            </GridView>
 
-            <TextView
-                android:id="@+id/gridViewText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignTop="@+id/gridViewText1"
-                android:layout_marginEnd="73dp"
-                android:gravity="center"
-                android:text="text 2"
-                android:textColor="#000000" />
+            <!--<TextView-->
+            <!--android:id="@+id/gridViewText1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignStart="@+id/gridViewText3"-->
+            <!--android:layout_marginTop="170dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="text 1"-->
+            <!--android:textColor="#000000" />-->
 
-            <TextView
-                android:id="@+id/gridViewText3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/gridViewText5"
-                android:layout_marginBottom="154dp"
-                android:gravity="center"
-                android:text="text 3"
-                android:textColor="#000000" />
+            <!--<TextView-->
+            <!--android:id="@+id/gridViewText2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignTop="@+id/gridViewText1"-->
+            <!--android:layout_marginEnd="73dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="text 2"-->
+            <!--android:textColor="#000000" />-->
 
-            <TextView
-                android:id="@+id/gridViewText4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/gridViewText2"
-                android:layout_below="@+id/gridViewText3"
-                android:layout_marginTop="-171dp"
-                android:gravity="center"
-                android:text="text 4"
-                android:textColor="#000000" />
+            <!--<TextView-->
+            <!--android:id="@+id/gridViewText3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignStart="@+id/gridViewText5"-->
+            <!--android:layout_marginBottom="154dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="text 3"-->
+            <!--android:textColor="#000000" />-->
 
-            <TextView
-                android:id="@+id/gridViewText5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignTop="@+id/gridViewText6"
-                android:layout_marginStart="73dp"
-                android:gravity="center"
-                android:text="text 5"
-                android:textColor="#000000" />
+            <!--<TextView-->
+            <!--android:id="@+id/gridViewText4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignStart="@+id/gridViewText2"-->
+            <!--android:layout_below="@+id/gridViewText3"-->
+            <!--android:layout_marginTop="-171dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="text 4"-->
+            <!--android:textColor="#000000" />-->
 
-            <TextView
-                android:id="@+id/gridViewText6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/gridViewText2"
-                android:layout_marginBottom="23dp"
-                android:gravity="center"
-                android:text="text 6"
-                android:textColor="#000000" />
+            <!--<TextView-->
+            <!--android:id="@+id/gridViewText5"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignTop="@+id/gridViewText6"-->
+            <!--android:layout_marginStart="73dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="text 5"-->
+            <!--android:textColor="#000000" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/gridViewText6"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignStart="@+id/gridViewText2"-->
+            <!--android:layout_marginBottom="23dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="text 6"-->
+            <!--android:textColor="#000000" />-->
 
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-        <ListView
-            android:id="@+id/log_list_view"
-            android:layout_width="wrap_content"
-            android:layout_height="115dp"
+        <!--<ListView-->
+            <!--android:id="@+id/log_list_view"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
 
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:paddingBottom="5dp"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp" />
+            <!--android:paddingLeft="12dp"-->
+            <!--android:paddingRight="12dp" />-->
 
-    </RelativeLayout>
+    </LinearLayout>
+
 </FrameLayout>

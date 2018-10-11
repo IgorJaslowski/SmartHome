@@ -40,6 +40,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         GridView grid = (GridView) view.findViewById(R.id.gridview);
+
         grid.setAdapter(new ImageAdapter(view.getContext()));
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -63,7 +64,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             }
         });
 
-        logItems = new ArrayList<LogItem>();
+       /* logItems = new ArrayList<LogItem>();
         logs = getResources().getStringArray(R.array.Logs);
 
         for (int i = logs.length - 1; i >= 0; i--) {
@@ -73,7 +74,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
 
         logListView = (ListView) view.findViewById(R.id.log_list_view);
         LogAdapter adapter = new LogAdapter(view.getContext(), logItems);
-        logListView.setAdapter(adapter);
+        logListView.setAdapter(adapter);*/
 
         return view;
     }
