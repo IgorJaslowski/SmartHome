@@ -65,12 +65,12 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private static Integer[] icons = {
-            R.drawable.ic_menu_camera,
-            R.drawable.ic_menu_camera,
-            R.drawable.ic_menu_share,
-            R.drawable.ic_menu_manage,
-            R.drawable.ic_menu_manage,
-            R.drawable.ic_menu_manage
+            R.drawable.ic_icon_alarm,
+            R.drawable.ic_icon_cam,
+            R.drawable.ic_icon_termometr,
+            R.drawable.ic_icon_wifi,
+            R.drawable.ic_icon_zarowka,
+            R.drawable.ic_icon_ustawienia
 };
 //    private static String[] gridViewStrings = {
 //            "NAME",

@@ -23,7 +23,7 @@
             android:textSize="20sp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_menu_gallery" />
+            android:src="@drawable/ic_icon_dom" />
     </android.support.v7.widget.Toolbar>
 
 

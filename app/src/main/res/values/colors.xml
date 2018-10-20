@@ -20,6 +20,16 @@
     <color name="colorGridIcon">#1B1D2A</color>
     <color name="colorGridBackground">#FFF</color>
 
+    <!--Activity colors-->
+    <color name="colorBackgroundDark">#1B1D2A</color>
+    <color name="colorFontWhite">#FFF</color>
+    <color name="colorFontDark">#1B1D2A</color>
+    <color name="colorHeader">#666</color>
+    <color name="colorIconOnDarkBg">#666</color>
 
+    <!--Temperature activity colors-->
+    <color name="colorIconTemperature">#0f9d58</color>
+    <color name="colorIconWater">#00aeff</color>
+    <color name="colorBorder">#d9d9d9</color>
 
 </resources>
