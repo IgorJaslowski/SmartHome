@@ -43,4 +43,6 @@
     <string name="settings">Ustawienia</string>
     <string name="sensors">Czujniki</string>
     <string name="degreesC">°C</string>
+    <string name="lightOn">On</string>
+    <string name="lightOff">Off</string>
 </resources>

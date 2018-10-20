@@ -8,11 +8,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import jb.smarthome.Light;
 import jb.smarthome.R;
 import jb.smarthome.RetrofitClientInstance;
+import jb.smarthome.adapter.LightAdapter;
 import jb.smarthome.adapter.TodoAdapter;
 import jb.smarthome.service.LightService;
 import retrofit2.Call;
@@ -21,8 +27,10 @@ import retrofit2.Response;
 
 public class LightActivity extends AppCompatActivity {
 
-    TextView textView;
-
+    TextView howMuchIsOn;
+    Button turnAllOn;
+    Button turnAllOff;
+    ListView listView;
 
 
     @Override
@@ -30,8 +38,30 @@ public class LightActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
 
+        howMuchIsOn = findViewById(R.id.getAllLight);
+        turnAllOn = findViewById(R.id.turnAllOn);
+        turnAllOff= findViewById(R.id.turnAllOff);
+        listView = findViewById(R.id.lightListView);
+
+        howMuchIsOn.setText("3/4");
+
+        ArrayList<Light> lightArrayList = new ArrayList<>();
+        Light kitchen = new Light("KUCHNIA",true);
+        Light room1 = new Light("POKÓJ 1",false);
+        Light room2 = new Light("POKÓJ 2",true);
+        Light salon = new Light("SALON",true);
+
+        lightArrayList.add(kitchen);
+        lightArrayList.add(room1);
+        lightArrayList.add(room2);
+        lightArrayList.add(salon);
+
+        LightAdapter adapter = new LightAdapter(this, R.layout.adapter_light_view_layout,lightArrayList);
+        listView.setAdapter(adapter);
 
         /*Create handle for the RetrofitInstance interface*/
+
+       /*
         final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
         Call<Boolean> call = service.getState();
         call.enqueue(new Callback<Boolean>() {
@@ -46,7 +76,7 @@ public class LightActivity extends AppCompatActivity {
             }
         });
 
-        Button onLightButton = (Button) findViewById(R.id.onLightButton);
+       Button onLightButton = (Button) findViewById(R.id.onLightButton);
 
         onLightButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +112,13 @@ public class LightActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
     }
 
 
     private void generateText(Boolean text){
-        textView = findViewById(R.id.isLightOnTextView);
-        textView.setText(Boolean.toString(text));
+//        textView = findViewById(R.id.isLightOnTextView);
+//        textView.setText(Boolean.toString(text));
 
     }
 }
