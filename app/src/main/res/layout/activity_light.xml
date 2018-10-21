@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.LightActivity"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
+        android:id="@+id/lightHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Światło"
+        android:textColor="@color/colorFontWhite"
+        android:textSize="25dp"
+        android:background="@color/colorHeader"/>
+
+    <TextView
+        android:id="@+id/turnOnAllLights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zapalone światła " />
+
+    <TextView
         android:id="@+id/isLightOnTextView"
         android:layout_width="110dp"
-        android:layout_height="0dp"
+        android:layout_height="63dp"
         android:layout_marginBottom="42dp"
         android:layout_marginTop="120dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/onLightButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="TextView" />
 
 
 
@@ -30,10 +42,7 @@
         android:layout_marginStart="130dp"
         android:layout_marginTop="1dp"
         android:text="On"
-        app:layout_constraintBottom_toTopOf="@+id/offLightButton"
-        app:layout_constraintEnd_toEndOf="@+id/isLightOnTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isLightOnTextView" />
+        />
 
     <Button
         android:id="@+id/offLightButton"
@@ -41,8 +50,7 @@
         android:layout_marginBottom="108dp"
         android:layout_marginStart="7dp"
         android:text="Off"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_bottom"
-        app:layout_constraintStart_toStartOf="@+id/onLightButton"
-        app:layout_constraintTop_toBottomOf="@+id/onLightButton"
+
         android:layout_width="wrap_content" />
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

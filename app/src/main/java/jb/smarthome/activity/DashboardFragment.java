@@ -48,16 +48,22 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
 
                 switch (position) {
                     case 0:
-                        startActivity(new Intent(getActivity(), LightActivity.class));
+//                        startActivity(new Intent(getActivity(), AlarmActivity.class));
                         break;
                     case 1:
-                        startActivity(new Intent(getActivity(), TemperatureActivity.class));
+                        startActivity(new Intent(getActivity(), CameraActivity.class));
                         break;
                     case 2:
-                        startActivity(new Intent(getActivity(), LightActivity.class));
+                        startActivity(new Intent(getActivity(), TemperatureActivity.class));
                         break;
                     case 3:
+//                        startActivity(new Intent(getActivity(), LightActivity.class));
+                        break;
+                    case 4:
                         startActivity(new Intent(getActivity(), LightActivity.class));
+                        break;
+                    case 5:
+//                        startActivity(new Intent(getActivity(), SettingsActivity.class));
                         break;
                 }
 

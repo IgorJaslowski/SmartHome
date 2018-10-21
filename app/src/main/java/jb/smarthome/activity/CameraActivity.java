@@ -3,6 +3,8 @@ package jb.smarthome.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import jb.smarthome.R;
+
 public class CameraActivity extends AppCompatActivity {
 
     @Override
