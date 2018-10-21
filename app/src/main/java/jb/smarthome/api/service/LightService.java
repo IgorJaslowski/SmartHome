@@ -1,4 +1,4 @@
-package jb.smarthome.service;
+package jb.smarthome.api.service;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

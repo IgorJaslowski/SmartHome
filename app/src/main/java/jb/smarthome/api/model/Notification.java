@@ -1,6 +1,4 @@
-package jb.smarthome;
-
-import java.util.Date;
+package jb.smarthome.api.model;
 
 public class Notification {
     private String status;

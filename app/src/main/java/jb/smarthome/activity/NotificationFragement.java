@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import jb.smarthome.Notification;
+import jb.smarthome.api.model.Notification;
 import jb.smarthome.R;
 import jb.smarthome.adapter.NotificationAdapter;
 

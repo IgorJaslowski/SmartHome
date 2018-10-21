@@ -1,4 +1,4 @@
-package jb.smarthome;
+package jb.smarthome.api.model;
 
 public class Light {
     private String room;

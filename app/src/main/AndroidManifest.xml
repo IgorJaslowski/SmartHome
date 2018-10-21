@@ -32,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TodoActivity" />
         <activity android:name=".activity.LightActivity" />
         <activity android:name=".activity.TemperatureActivity" />
         <activity android:name=".activity.CameraActivity"></activity>

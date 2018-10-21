@@ -12,11 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
-import jb.smarthome.Notification;
+import jb.smarthome.api.model.Notification;
 import jb.smarthome.R;
-import jb.smarthome.Temperature;
 
 public class NotificationAdapter extends ArrayAdapter<Notification> {
 

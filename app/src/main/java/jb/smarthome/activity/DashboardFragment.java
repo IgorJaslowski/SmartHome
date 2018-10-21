@@ -10,24 +10,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import jb.smarthome.LogItem;
 import jb.smarthome.R;
 import jb.smarthome.adapter.ImageAdapter;
-import jb.smarthome.adapter.LogAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment implements AdapterView.OnItemClickListener {
 
-    String[] logs;
-    List<LogItem> logItems;
-    ListView logListView;
+
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -70,17 +64,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             }
         });
 
-       /* logItems = new ArrayList<LogItem>();
-        logs = getResources().getStringArray(R.array.Logs);
 
-        for (int i = logs.length - 1; i >= 0; i--) {
-            LogItem logItem = new LogItem(i, logs[i]);
-            logItems.add(logItem);
-        }
-
-        logListView = (ListView) view.findViewById(R.id.log_list_view);
-        LogAdapter adapter = new LogAdapter(view.getContext(), logItems);
-        logListView.setAdapter(adapter);*/
 
         return view;
     }
