@@ -32,4 +32,10 @@
     <color name="colorIconWater">#00aeff</color>
     <color name="colorBorder">#d9d9d9</color>
 
+    <!--Light colors-->
+    <color name="colorOffLight">#ebebeb</color>
+    <color name="colorOnLight">#00aeff</color>
+    <color name="colorBlack">#000</color>
+
+
 </resources>
