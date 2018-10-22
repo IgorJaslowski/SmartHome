@@ -41,5 +41,11 @@
     <color name="colorOnLight">#00aeff</color>
     <color name="colorBlack">#000</color>
 
+    <!--Sensor bg gradient-->
+    <color name="colorSensorGradientStart">#152231</color>
+    <color name="colorSensorGradientCenter">#f00</color>
+    <color name="colorSensorGradientEnd">#f00</color>
+
+
 
 </resources>
