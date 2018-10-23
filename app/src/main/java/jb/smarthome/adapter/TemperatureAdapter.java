@@ -14,7 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import jb.smarthome.R;
-import jb.smarthome.Temperature;
+
+import jb.smarthome.api.model.Temperature;
 
 public class TemperatureAdapter extends ArrayAdapter<Temperature> {
 
@@ -33,12 +34,12 @@ public class TemperatureAdapter extends ArrayAdapter<Temperature> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //get the temperature information
         String room = getItem(position).getRoom();
-        String degrees = getItem(position).getDegrees();
-        String humidity = getItem(position).getHumidity();
+        String degrees = String.valueOf(getItem(position).getTemperature());
+        String humidity = String.valueOf(getItem(position).getHumidity());
 
 
         //Create the object with the data
-        Temperature temperature = new Temperature(room,degrees,humidity);
+//        Temperature temperature = new Temperature(room,degrees,humidity);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource,parent,false);

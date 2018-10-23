@@ -1,29 +1,16 @@
 package jb.smarthome.activity;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import jb.smarthome.Light;
+import jb.smarthome.api.model.Light;
 import jb.smarthome.R;
-import jb.smarthome.RetrofitClientInstance;
 import jb.smarthome.adapter.LightAdapter;
-import jb.smarthome.adapter.TodoAdapter;
-import jb.smarthome.service.LightService;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LightActivity extends AppCompatActivity {
 

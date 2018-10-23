@@ -31,6 +31,10 @@
     <color name="colorIconTemperature">#0f9d58</color>
     <color name="colorIconWater">#00aeff</color>
     <color name="colorBorder">#d9d9d9</color>
+    <!--Temperature bg gradient-->
+    <color name="colorTemperatureGradientStart">#152231</color>
+    <color name="colorTemperatureGradientEnd">#0f9d58</color>
+
 
     <!--Light colors-->
     <color name="colorOffLight">#ebebeb</color>

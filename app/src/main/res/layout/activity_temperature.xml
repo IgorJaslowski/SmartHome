@@ -12,7 +12,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:background="@color/colorBackgroundDark">
+        android:background="@drawable/bg_temperature_gradient"
+        >
 
         <TextView
             android:id="@+id/temperatureHeader"

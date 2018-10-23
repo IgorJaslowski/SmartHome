@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import jb.smarthome.Light;
+import jb.smarthome.api.model.Light;
 import jb.smarthome.R;
 
 
