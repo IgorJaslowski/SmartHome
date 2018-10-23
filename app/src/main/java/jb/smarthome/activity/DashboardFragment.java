@@ -51,7 +51,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                         startActivity(new Intent(getActivity(), TemperatureActivity.class));
                         break;
                     case 3:
-//                        startActivity(new Intent(getActivity(), LightActivity.class));
+                        startActivity(new Intent(getActivity(), SensorActivity.class));
                         break;
                     case 4:
                         startActivity(new Intent(getActivity(), LightActivity.class));
