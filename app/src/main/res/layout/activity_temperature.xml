@@ -5,41 +5,41 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/bg_temperature"
     android:orientation="vertical"
 
     tools:context=".activity.TemperatureActivity">
 
+    <TextView
+        android:id="@+id/temperatureHeader"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorHeader"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="12dp"
+        android:text="Temperatura i wilgotność"
+        android:textColor="@color/colorFontWhite"
+        android:textSize="20sp" />
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:background="@drawable/bg_temperature_gradient"
-        >
-
-        <TextView
-            android:id="@+id/temperatureHeader"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorHeader"
-            android:gravity="left|center_vertical"
-            android:paddingLeft="12dp"
-            android:text="Temperatura i wilgotność"
-            android:textColor="@color/colorFontWhite"
-            android:textSize="20sp" />
+        android:layout_height="185dp">
 
 
         <TextView
             android:id="@+id/temperatureAvg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="top|center"
             android:clickable="false"
-            android:drawableLeft="@drawable/ic_icon_termometr2x"
+            android:drawableLeft="@mipmap/ic_thermometr"
             android:drawablePadding="30dp"
             android:focusable="false"
             android:gravity="center"
+            android:paddingTop="30dp"
             android:textColor="@color/colorFontWhite"
-            android:textSize="60sp"
-            android:textStyle="bold"/>
+            android:textSize="70sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/humidityAvg"
@@ -47,13 +47,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:clickable="false"
-            android:drawableLeft="@drawable/ic_icon_kropla2x"
+            android:drawableLeft="@mipmap/ic_water"
             android:drawablePadding="30dp"
             android:focusable="false"
-            android:gravity="center"
             android:textColor="@color/colorFontWhite"
-
-
             android:textSize="60sp" />
     </FrameLayout>
 
@@ -61,7 +58,7 @@
     <ListView
         android:id="@+id/temperatureListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="309dp"
         android:layout_marginTop="12dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
@@ -71,10 +68,10 @@
     </ListView>
 
     <!--<TextView-->
-        <!--android:id="@+id/temperatureTextView"-->
-        <!--android:text="Temperatura wynosi :"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--tools:layout_editor_absoluteY="50dp" />-->
+    <!--android:id="@+id/temperatureTextView"-->
+    <!--android:text="Temperatura wynosi :"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--tools:layout_editor_absoluteY="50dp" />-->
 
 </LinearLayout>

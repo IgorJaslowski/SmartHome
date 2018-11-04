@@ -50,7 +50,7 @@ public class TemperatureAdapter extends ArrayAdapter<Temperature> {
 
 
         roomTextView.setText(room);
-        degreesTextView.setText(degrees);
+        degreesTextView.setText(degrees + mContext.getString(R.string.degreesC));
         humidityTextView.setText(humidity);
 
         return convertView;
