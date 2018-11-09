@@ -17,11 +17,13 @@ public class GridViewAdapter extends BaseAdapter {
     private Context mContext;
     private final String[] gridViewString;
     private final int[] gridViewImageId;
+    private final String[] gridViewSmallText;
 
-    public GridViewAdapter(Context context, String[] gridViewString, int[] gridViewImageId) {
+    public GridViewAdapter(Context context, String[] gridViewString, int[] gridViewImageId,String[] gridViewSmallText) {
         mContext = context;
         this.gridViewImageId = gridViewImageId;
         this.gridViewString = gridViewString;
+        this.gridViewSmallText = gridViewSmallText;
     }
 
     @Override
@@ -51,8 +53,11 @@ public class GridViewAdapter extends BaseAdapter {
             gridViewAndroid = inflater.inflate(R.layout.activity_grid_view_adapter, null);
             TextView textViewAndroid = (TextView) gridViewAndroid.findViewById(R.id.android_gridview_text);
             ImageView imageViewAndroid = (ImageView) gridViewAndroid.findViewById(R.id.android_gridview_image);
+            TextView gridViewSmallTextTextView = (TextView) gridViewAndroid.findViewById(R.id.android_gridview_small_text);
             textViewAndroid.setText(gridViewString[i]);
             imageViewAndroid.setImageResource(gridViewImageId[i]);
+            imageViewAndroid.setTooltipText("test");
+            gridViewSmallTextTextView.setText(gridViewSmallText[i]);
             gridViewAndroid.setPadding(60, 60,60, 60);
             gridViewAndroid.setDrawingCacheBackgroundColor(mContext.getColor(R.color.colorGridIcon));
          gridViewAndroid.setBackgroundColor(mContext.getColor(R.color.colorGridBackground));

@@ -4,7 +4,7 @@
     <color name="white">#FFF</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#00aeff</color>
+    <color name="colorAccent">#053B21</color>
     <color name="colorTitle">#00aeff</color>
     <color name="colorTitleBackground">#1b1d2a</color>
     <color name="colorAppbar">#1B1D2A</color>
@@ -19,6 +19,8 @@
     <!-- Grid colors-->
     <color name="colorGridIcon">#1B1D2A</color>
     <color name="colorGridBackground">#FFF</color>
+    <color name="colorGridSmallText">#757575</color>
+    <color name="colorGridText">#000</color>
 
     <!--Activity colors-->
     <color name="colorBackgroundDark">#1B1D2A</color>

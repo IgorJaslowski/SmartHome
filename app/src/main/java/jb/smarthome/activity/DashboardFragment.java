@@ -42,6 +42,14 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             R.drawable.ic_icon_ustawienia
 
     };
+    String[] gridViewSmallText ={
+            "WYŁĄCZONY",
+            "WYŁĄCZONA",
+            "i WILGOTNOŚĆ POWIETRZA",
+            "11 AKTYWNYCH",
+            "3/5 WŁĄCZONYCH",
+            "5 DOSTĘPNYCH USTAWIEŃ"
+    };
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -54,7 +62,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
 
-        GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId);
+        GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId,gridViewSmallText);
         androidGridView = (GridView) view.findViewById(R.id.gridview);
         androidGridView.setAdapter(adapterViewAndroid);
 
