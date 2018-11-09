@@ -26,12 +26,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        // Inflate the layout for this fragment
-        LayoutInflater inflater1 = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View vi = inflater1.inflate(R.layout.activity_main2, null); //log.xml is your file.
-        TextView tv = (TextView)vi.findViewById(R.id.fragmentHeader); //get a reference to the textview on the log.xml file.
-        tv.setText("Home");
+
         return view;
     }
 

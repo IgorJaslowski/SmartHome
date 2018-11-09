@@ -52,6 +52,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     TabLayout tabLayout;
     @BindView(R.id.container)
      ViewPager mViewPager;
+    @BindView(R.id.fragmentHeader)
+    TextView fragmentHeaderTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +81,34 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
-
-
+        //default header
+        fragmentHeaderTextView.setText("Menu");
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                if(i==0){
+                    fragmentHeaderTextView.setText("Menu");
+                }
+                else if(i==1){
+                    fragmentHeaderTextView.setText("Powiadomienia");
+                }
+                else{
+                    fragmentHeaderTextView.setText("Statystyki");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_icon_ustawienia);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_icon_ustawienia);
@@ -134,16 +160,18 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
         @Override
         public Fragment getItem(int position) {
+
+
             switch(position){
                 case 0 :
                     DashboardFragment dashboardFragment = new DashboardFragment();
-                    return dashboardFragment;
+                                      return dashboardFragment;
                 case 1 :
-                    HomeFragment homeFragment = new HomeFragment();
-                    return homeFragment;
-                case 2 :
                     NotificationFragement notificationFragement = new NotificationFragement();
                     return notificationFragement;
+                case 2 :
+                    HomeFragment homeFragment = new HomeFragment();
+                    return homeFragment;
 
                 default:
                     return null;
