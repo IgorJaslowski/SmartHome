@@ -4,7 +4,7 @@
     <color name="white">#FFF</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#00aeff</color>
     <color name="colorTitle">#00aeff</color>
     <color name="colorTitleBackground">#1b1d2a</color>
     <color name="colorAppbar">#1B1D2A</color>
@@ -48,7 +48,7 @@
     <color name="colorSensorGradientStart">#152231</color>
     <color name="colorSensorGradientCenter">#f00</color>
     <color name="colorSensorGradientEnd">#f00</color>
-
+    <color name="colorTabBg">#0f9d58</color>
 
 
 </resources>

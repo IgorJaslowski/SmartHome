@@ -1,6 +1,7 @@
 package jb.smarthome.activity;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.audiofx.BassBoost;
 import android.os.Bundle;
@@ -10,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import jb.smarthome.R;
 import jb.smarthome.adapter.GridViewAdapter;
 
@@ -54,6 +57,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId);
         androidGridView = (GridView) view.findViewById(R.id.gridview);
         androidGridView.setAdapter(adapterViewAndroid);
+
 
 
         androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

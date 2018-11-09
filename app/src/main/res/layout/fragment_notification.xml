@@ -6,22 +6,11 @@
     tools:context=".activity.NotificationFragement">
 
 
-    <TextView
-        android:id="@+id/temperatureHeader"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorHeader"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="12dp"
-        android:text="Powiadomienia"
-        android:textColor="@color/colorFontWhite"
-        android:textSize="20sp" />
-
     <ListView
         android:id="@+id/notificationListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="12dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         android:paddingLeft="12dp"
