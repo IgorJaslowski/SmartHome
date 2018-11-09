@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ import jb.smarthome.adapter.LightAdapter;
 public class LightActivity extends AppCompatActivity {
 
     TextView howMuchIsOn;
-    Button turnAllOn;
-    Button turnAllOff;
+    Switch turnAllOn;
+
     ListView listView;
 
 
@@ -26,8 +27,7 @@ public class LightActivity extends AppCompatActivity {
         setContentView(R.layout.activity_light);
 
         howMuchIsOn = findViewById(R.id.getAllLight);
-        turnAllOn = findViewById(R.id.turnAllOn);
-        turnAllOff= findViewById(R.id.turnAllOff);
+        turnAllOn = findViewById(R.id.turnAllOnOff);
         listView = findViewById(R.id.lightListView);
 
         howMuchIsOn.setText("3/4");

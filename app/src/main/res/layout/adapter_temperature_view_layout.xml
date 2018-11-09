@@ -7,7 +7,7 @@
     android:layout_marginRight="12dp"
     android:orientation="horizontal"
     android:weightSum="100"
-    android:background="@mipmap/shadow_list_view">
+    android:background="@mipmap/shadow_temperature">
 
     <TextView
         android:id="@+id/tempLayoutName"

@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(Gravity.RIGHT)) {
-            drawer.closeDrawer(Gravity.RIGHT);
+        if (drawer.isDrawerOpen(Gravity.END)) {
+            drawer.closeDrawer(Gravity.END);
         } else {
-            drawer.openDrawer(Gravity.RIGHT);
+            drawer.openDrawer(Gravity.END);
         }
     }
 

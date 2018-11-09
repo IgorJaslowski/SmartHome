@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/bg_temperature"
 
     tools:context=".activity.LightActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp">
+        android:layout_height="240dp"
+        >
 
 
         <TextView
@@ -26,10 +28,24 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="184dp"
+            android:layout_height="160dp"
+            android:gravity="bottom|left|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="111dp"
+                android:layout_height="86dp"
+                android:layout_gravity="right|center_vertical"
+                app:srcCompat="@drawable/ic_icon_zarowka" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="237dp"
+            android:layout_height="131dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="100dp"
             android:orientation="vertical">
 
 
@@ -41,9 +57,10 @@
                 android:drawablePadding="30dp"
                 android:focusable="false"
                 android:gravity="center"
+                android:paddingLeft="50dp"
                 android:text="Zapalone światła"
-                android:textColor="@color/colorBlack"
-                android:textSize="25sp" />
+                android:textColor="@color/colorFontWhite"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/getAllLight"
@@ -51,58 +68,44 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="false"
-                android:drawableLeft="@drawable/ic_icon_zarowka"
                 android:drawablePadding="30dp"
                 android:focusable="false"
                 android:gravity="center"
-                android:paddingBottom="12dp"
+                android:paddingLeft="50dp"
                 android:text="3/4"
-                android:textColor="@color/colorBlack"
-                android:textSize="25sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:clickable="false"
-                android:drawablePadding="30dp"
-                android:focusable="false"
-                android:gravity="center"
-                android:text="Zarządzaj światłami"
-                android:textColor="@color/colorBlack"
-                android:textSize="25sp" />
+                android:textColor="@color/colorFontWhite"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="12dp">
+                android:layout_height="wrap_content">
 
-
-                <Button
-                    android:id="@+id/turnAllOn"
+                <TextView
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:drawablePadding="30dp"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:text="Zarządzaj światłami"
+                    android:textColor="@color/colorFontWhite"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/turnAllOnOff"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
                     android:clickable="false"
                     android:focusable="false"
                     android:gravity="center"
-                    android:text="@string/lightOn"
-
                     android:textColor="@color/colorBlack"
-                    android:textSize="30sp" />
-
-                <Button
-                    android:id="@+id/turnAllOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:gravity="center"
-                    android:text="@string/lightOff"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="30sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
+
+
         </LinearLayout>
 
 
