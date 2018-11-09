@@ -1,10 +1,13 @@
 package jb.smarthome.activity;
 
+import android.content.Context;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -80,9 +83,35 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         // Set up the ViewPager with the sections adapter.
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager){
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                super.onTabSelected(tab);
+                int tabIconColor = ContextCompat.getColor(getBaseContext(), R.color.colorTabSelectedText);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                super.onTabUnselected(tab);
+                int tabIconColor = ContextCompat.getColor(getBaseContext(), R.color.colorTabText);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                super.onTabReselected(tab);
+            }
+        });
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_icon_ustawienia);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_icon_ustawienia);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_icon_ustawienia);
         //default header
         fragmentHeaderTextView.setText("Menu");
+        //set color on selected menu
+        int tabIconColor = ContextCompat.getColor(getBaseContext(), R.color.colorTabSelectedText);
+        tabLayout.getTabAt(0).getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -109,10 +138,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             }
         });
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_icon_ustawienia);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_icon_ustawienia);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_icon_ustawienia);
+
     }
 
     @Override

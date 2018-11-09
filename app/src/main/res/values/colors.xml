@@ -50,7 +50,13 @@
     <color name="colorSensorGradientStart">#152231</color>
     <color name="colorSensorGradientCenter">#f00</color>
     <color name="colorSensorGradientEnd">#f00</color>
+
+    <!--Tab colors-->
     <color name="colorTabBg">#0f9d58</color>
+    <color name="colorTabText">#075530</color>
+    <color name="colorTabSelectedText">#053B21</color>
+
+
 
 
 </resources>
