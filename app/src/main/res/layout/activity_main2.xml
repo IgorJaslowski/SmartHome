@@ -54,18 +54,22 @@
                 android:adjustViewBounds="true"
                 android:paddingLeft="5dp"
                 android:src="@drawable/ic_icon_smart"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+
+                />
 
         </android.support.v7.widget.Toolbar>
         <TextView
             android:id="@+id/fragmentHeader"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:background="@color/colorHeader"
             android:gravity="left|center_vertical"
             android:paddingLeft="12dp"
             android:textColor="@color/colorFontWhite"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.DashboardFragment">
+    tools:context=".activity.DashboardFragment"
+    android:background="@color/colorDashboardBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
