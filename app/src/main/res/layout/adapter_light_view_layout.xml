@@ -7,16 +7,17 @@
     android:layout_marginRight="12dp"
     android:orientation="horizontal"
     android:weightSum="100"
-    android:background="@mipmap/shadow_list_view">
+    android:background="@mipmap/shadow_light_250x80">
 
     <TextView
         android:id="@+id/lightRoom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="33.3"
-        android:gravity="center_vertical|center_horizontal"
-        android:paddingBottom="12dp"
-        android:paddingTop="12dp"
+        android:layout_marginLeft="40px"
+        android:layout_weight="50"
+        android:gravity="center_vertical|center_horizontal|start"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
         android:text=""
         android:textColor="@color/colorGridIcon"
         android:textSize="20sp" />
@@ -26,18 +27,18 @@
         android:id="@+id/lightOn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="66.6"
-        android:background="@color/colorOnLight"
-        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginRight="40px"
+        android:layout_weight="50"
+        android:gravity="center_vertical|center_horizontal|end"
         android:paddingBottom="12dp"
+        android:paddingRight="30px"
         android:paddingTop="12dp"
         android:textColor="@color/colorGridIcon"
         android:textOff="@string/lightOff"
+
+
         android:textOn="@string/lightOn"
-        android:textSize="20sp"
-
-
-        />
+        android:textSize="20sp" />
 
 
 

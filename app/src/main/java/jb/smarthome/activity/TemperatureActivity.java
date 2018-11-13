@@ -26,10 +26,24 @@ public class TemperatureActivity extends AppCompatActivity {
     TextView tempAvgTextView;
     TextView humidityTextView;
     ListView tempListView;
+    private volatile boolean stop = false;
+    Thread t1;
+
+    @Override
+    public void onDestroy() {
+        stop = true;
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        super.onDestroy();
+    }
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        stop = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature);
 
@@ -37,57 +51,70 @@ public class TemperatureActivity extends AppCompatActivity {
         tempAvgTextView = findViewById(R.id.temperatureAvg);
 
 
-
         humidityTextView = findViewById(R.id.humidityAvg);
-
 
 
         tempListView = findViewById(R.id.temperatureListView);
 
+        // TEST DATA
+/*        tempAvgTextView.setText("50"+getString(R.string.degreesC));
+        humidityTextView.setText("50");
+        Temperature t1 = new Temperature("t1",100.,200.);
+        Temperature t2 = new Temperature("t1",100.,200.);
+        Temperature t3 = new Temperature("t1",100.,200.);
+        ArrayList<Temperature> temperaturesList = new ArrayList<>();
+        temperaturesList.add(t1);
+        temperaturesList.add(t2);
+        temperaturesList.add(t3);
+        TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(),R.layout.adapter_temperature_view_layout,temperaturesList);
+        tempListView.setAdapter(adapter);*/
 
 
-        Thread t1 = new Thread(){
+        t1 = new Thread() {
             @Override
             public void run() {
-                while (true){
+                while (!stop) {
+
+
                     TemperatureService service = RetrofitClientInstance.getRetrofitInstance().create(TemperatureService.class);
                     Call<TemperatureResponse> call = service.getTemperatureAndHumidity();
                     call.enqueue(new Callback<TemperatureResponse>() {
                         @Override
                         public void onResponse(Call<TemperatureResponse> call, Response<TemperatureResponse> response) {
-                            tempAvgTextView.setText(response.body().getAvgTemperature());
+                            tempAvgTextView.setText(response.body().getAvgTemperature() + getString(R.string.degreesC));
                             humidityTextView.setText(response.body().getAvgHumidity());
                             ArrayList<Temperature> temperaturesList = new ArrayList<>();
                             temperaturesList = response.body().getTemperatures();
-                            TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(),R.layout.adapter_temperature_view_layout,temperaturesList);
+                            TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(), R.layout.adapter_temperature_view_layout, temperaturesList);
                             tempListView.setAdapter(adapter);
+                            System.out.println("Pobrano temperature");
 
                         }
 
                         @Override
                         public void onFailure(Call<TemperatureResponse> call, Throwable t) {
-                            Toast.makeText(TemperatureActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TemperatureActivity.this, "Brak połączenia z serwerem.", Toast.LENGTH_SHORT).show();
+
                         }
+
                     });
                     try {
-                        sleep(5000);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-
             }
         };
         t1.start();
 
+
         /*Create handle for the RetrofitInstance interface*/
-
-
 
 
     }
 
-    private void generateText(Float text){
+    private void generateText(Float text) {
         textView = findViewById(R.id.temperatureAvg);
 //        textView.setText("Temperatura wynosi :"+text);
 

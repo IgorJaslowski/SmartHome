@@ -35,7 +35,9 @@
         <activity android:name=".activity.LightActivity" />
         <activity android:name=".activity.TemperatureActivity" />
         <activity android:name=".activity.SensorActivity" />
-        <activity android:name=".activity.CameraActivity"></activity>
+        <activity android:name=".activity.CameraActivity" />
+        <activity android:name=".adapter.GridViewAdapter" />
+        <activity android:name=".activity.AlarmActivity" />
     </application>
 
 </manifest>
