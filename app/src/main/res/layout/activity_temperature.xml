@@ -5,7 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_temperature"
+    android:background="@drawable/bg_temperature_gradient"
     android:orientation="vertical"
 
     tools:context=".activity.TemperatureActivity">
@@ -33,7 +33,7 @@
             android:layout_gravity="top|center"
             android:clickable="false"
             android:drawableLeft="@mipmap/ic_thermometr"
-            android:drawablePadding="30dp"
+            android:drawablePadding="5dp"
             android:focusable="false"
             android:gravity="center"
             android:paddingTop="30dp"
@@ -48,7 +48,7 @@
             android:layout_gravity="bottom|center"
             android:clickable="false"
             android:drawableLeft="@mipmap/ic_water"
-            android:drawablePadding="30dp"
+            android:drawablePadding="5dp"
             android:focusable="false"
             android:textColor="@color/colorFontWhite"
             android:textSize="60sp" />

@@ -1,6 +1,7 @@
 package jb.smarthome.activity;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.audiofx.BassBoost;
 import android.os.Bundle;
@@ -10,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import jb.smarthome.R;
 import jb.smarthome.adapter.GridViewAdapter;
 
@@ -39,6 +42,14 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             R.drawable.ic_icon_ustawienia
 
     };
+    String[] gridViewSmallText ={
+            "WYŁĄCZONY",
+            "WYŁĄCZONA",
+            "i WILGOTNOŚĆ POWIETRZA",
+            "11 AKTYWNYCH",
+            "3/5 WŁĄCZONYCH",
+            "5 DOSTĘPNYCH USTAWIEŃ"
+    };
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -51,9 +62,10 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
 
-        GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId);
+        GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId,gridViewSmallText);
         androidGridView = (GridView) view.findViewById(R.id.gridview);
         androidGridView.setAdapter(adapterViewAndroid);
+
 
 
         androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

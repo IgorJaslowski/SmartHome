@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mFrameLayout = (FrameLayout) findViewById(R.id.main_frame);
-        mMainNav = (BottomNavigationView) findViewById(R.id.nav_top);
+//        mFrameLayout = (FrameLayout) findViewById(R.id.main_frame);
+//        mMainNav = (BottomNavigationView) findViewById(R.id.nav_top);
 
 
         dashboardFragment = new DashboardFragment();
@@ -90,17 +90,17 @@ public class MainActivity extends AppCompatActivity
 
     private void setFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_frame,fragment);
+//        fragmentTransaction.replace(R.id.main_frame,fragment);
         fragmentTransaction.commit();
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(Gravity.END)) {
-            drawer.closeDrawer(Gravity.END);
+        if (drawer.isDrawerOpen(Gravity.RIGHT)) {
+            drawer.closeDrawer(Gravity.RIGHT);
         } else {
-            drawer.openDrawer(Gravity.END);
+            drawer.openDrawer(Gravity.RIGHT);
         }
     }
 

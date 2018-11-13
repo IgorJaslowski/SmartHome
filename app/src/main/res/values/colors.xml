@@ -4,7 +4,7 @@
     <color name="white">#FFF</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#053B21</color>
     <color name="colorTitle">#00aeff</color>
     <color name="colorTitleBackground">#1b1d2a</color>
     <color name="colorAppbar">#1B1D2A</color>
@@ -19,6 +19,9 @@
     <!-- Grid colors-->
     <color name="colorGridIcon">#1B1D2A</color>
     <color name="colorGridBackground">#FFF</color>
+    <color name="colorGridSmallText">#757575</color>
+    <color name="colorGridText">#000</color>
+    <color name="colorDashboardBackground">#c7cccf</color>
 
     <!--Activity colors-->
     <color name="colorBackgroundDark">#1B1D2A</color>
@@ -48,6 +51,12 @@
     <color name="colorSensorGradientStart">#152231</color>
     <color name="colorSensorGradientCenter">#f00</color>
     <color name="colorSensorGradientEnd">#f00</color>
+
+    <!--Tab colors-->
+    <color name="colorTabBg">#0f9d58</color>
+    <color name="colorTabText">#075530</color>
+    <color name="colorTabSelectedText">#053B21</color>
+
 
 
 
