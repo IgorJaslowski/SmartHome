@@ -2,8 +2,17 @@ package jb.smarthome.api.model;
 
 public class Light {
     private String room;
-    private Boolean isOn;
+    private boolean isOn;
+    private int pin;
 
+    public Light(String room, boolean isOn, int pin) {
+        this.room = room;
+        this.isOn = isOn;
+        this.pin = pin;
+    }
+    public Light() {
+
+    }
     public String getRoom() {
         return room;
     }
@@ -12,17 +21,29 @@ public class Light {
         this.room = room;
     }
 
-    public Boolean getOn() {
+    public boolean getIsOn() {
         return isOn;
     }
 
-    public void setOn(Boolean on) {
-        isOn = on;
+    public void setIsOn(boolean isOn) {
+        isOn = isOn;
     }
 
-    public Light(String room, Boolean isOn) {
-        this.room = room;
-        this.isOn = isOn;
+    public int getPin() {
+        return pin;
+    }
+
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
+
+    @Override
+    public String toString() {
+        return "Light{" +
+                "room='" + room + '\'' +
+                ", isOn=" + isOn +
+                ", pin=" + pin +
+                '}';
     }
 }
 
