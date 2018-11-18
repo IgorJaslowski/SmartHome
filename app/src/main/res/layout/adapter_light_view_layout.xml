@@ -7,7 +7,7 @@
     android:layout_marginRight="12dp"
     android:orientation="horizontal"
     android:weightSum="100"
-    android:background="@mipmap/shadow_light_250x80">
+    android:background="@mipmap/shadow">
 
     <TextView
         android:id="@+id/lightRoom"

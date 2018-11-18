@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:background="@drawable/bg_gradient_green_blue"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/bg_alarm"
+
 
     tools:context=".activity.AlarmActivity">
 
@@ -21,27 +21,27 @@
         android:textSize="20sp" />
 
     <GridLayout
-        android:layout_width="369dp"
-        android:layout_height="202dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginTop="120dp"
-        android:background="@mipmap/shadow_alarm_250x200">
+        android:background="@mipmap/shadow">
 
 
         <LinearLayout
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
+            android:layout_width="294dp"
+            android:layout_height="158dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="50dp"
             android:orientation="vertical">
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="87dp"
                 android:layout_gravity="center"
                 android:clickable="false"
-                android:drawablePadding="30dp"
+                android:drawableLeft="@mipmap/alert_72px"
                 android:focusable="false"
                 android:gravity="center"
                 android:text="Alarm jest \n On/Off"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="false"
-                android:drawableLeft="@drawable/ic_icon_alarm"
+
                 android:drawablePadding="30dp"
                 android:focusable="false"
                 android:gravity="center"

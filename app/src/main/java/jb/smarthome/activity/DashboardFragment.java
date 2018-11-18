@@ -1,7 +1,6 @@
 package jb.smarthome.activity;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.media.audiofx.BassBoost;
 import android.os.Bundle;
@@ -11,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
-import butterknife.ButterKnife;
 import jb.smarthome.R;
 import jb.smarthome.adapter.GridViewAdapter;
 
@@ -34,12 +31,12 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
 
     };
     int[] gridViewImageId = {
-            R.drawable.ic_icon_alarm,
-            R.drawable.ic_icon_cam,
-            R.drawable.ic_icon_termometr,
-            R.drawable.ic_icon_wifi,
-            R.drawable.ic_icon_zarowka,
-            R.drawable.ic_icon_ustawienia
+            R.drawable.ic_baseline_notifications_active_24px,
+            R.drawable.ic_baseline_photo_camera_24px,
+            R.drawable.ic_baseline_thermometer,
+            R.drawable.ic_baseline_wifi_24px,
+            R.drawable.ic_baseline_lightbulb,
+            R.drawable.ic_baseline_settings_20px
 
     };
     String[] gridViewSmallText ={

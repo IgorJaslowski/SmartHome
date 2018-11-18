@@ -56,8 +56,7 @@
     <color name="colorTabBg">#0f9d58</color>
     <color name="colorTabText">#075530</color>
     <color name="colorTabSelectedText">#053B21</color>
-
-
+    <color name="color_notify_date">#adadad</color>
 
 
 </resources>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/bg_temperature"
+android:background="@drawable/bg_gradient_green_blue"
 
     tools:context=".activity.LightActivity">
 
@@ -38,7 +38,7 @@
                 android:layout_width="111dp"
                 android:layout_height="86dp"
                 android:layout_gravity="right|center_vertical"
-                app:srcCompat="@drawable/ic_icon_zarowka" />
+                app:srcCompat="@drawable/ic_baseline_lightbulb" />
         </LinearLayout>
 
         <LinearLayout

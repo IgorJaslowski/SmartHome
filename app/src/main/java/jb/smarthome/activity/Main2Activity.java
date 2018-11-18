@@ -1,35 +1,28 @@
 package jb.smarthome.activity;
 
-import android.content.Context;
 import android.graphics.PorterDuff;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jb.smarthome.R;
+
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -54,7 +47,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     @BindView(R.id.tabs)
     TabLayout tabLayout;
     @BindView(R.id.container)
-     ViewPager mViewPager;
+    ViewPager mViewPager;
     @BindView(R.id.fragmentHeader)
     TextView fragmentHeaderTextView;
 
@@ -103,9 +96,9 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 super.onTabReselected(tab);
             }
         });
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_icon_ustawienia);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_icon_ustawienia);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_icon_ustawienia);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_dashboard_24px);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_message_24px);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_bar_chart_24px);
         //default header
         fragmentHeaderTextView.setText("Menu");
         //set color on selected menu
@@ -191,13 +184,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             switch(position){
                 case 0 :
                     DashboardFragment dashboardFragment = new DashboardFragment();
-                                      return dashboardFragment;
+                    return dashboardFragment;
                 case 1 :
                     NotificationFragement notificationFragement = new NotificationFragement();
                     return notificationFragement;
                 case 2 :
-                    HomeFragment homeFragment = new HomeFragment();
-                    return homeFragment;
+                    StatisticsFragment statisticsFragment = new StatisticsFragment();
+                    return statisticsFragment;
 
                 default:
                     return null;

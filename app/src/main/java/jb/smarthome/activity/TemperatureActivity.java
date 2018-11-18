@@ -57,7 +57,7 @@ public class TemperatureActivity extends AppCompatActivity {
         tempListView = findViewById(R.id.temperatureListView);
 
         // TEST DATA
-        tempAvgTextView.setText("50"+getString(R.string.degreesC));
+    /*    tempAvgTextView.setText("50"+getString(R.string.degreesC));
         humidityTextView.setText("50");
         Temperature t1 = new Temperature("t1",100.,200.);
         Temperature t2 = new Temperature("t1",100.,200.);
@@ -67,10 +67,10 @@ public class TemperatureActivity extends AppCompatActivity {
         temperaturesList.add(t2);
         temperaturesList.add(t3);
         TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(),R.layout.adapter_temperature_view_layout,temperaturesList);
-        tempListView.setAdapter(adapter);
+        tempListView.setAdapter(adapter);*/
 
 
-       /* t1 = new Thread() {
+       t1 = new Thread() {
             @Override
             public void run() {
                 while (!stop) {
@@ -106,17 +106,10 @@ public class TemperatureActivity extends AppCompatActivity {
                 }
             }
         };
-        t1.start();*/
-
-
-        /*Create handle for the RetrofitInstance interface*/
+        t1.start();
+        //TODO zamienić na rx java
 
 
     }
 
-    private void generateText(Float text) {
-        textView = findViewById(R.id.temperatureAvg);
-//        textView.setText("Temperatura wynosi :"+text);
-
-    }
 }

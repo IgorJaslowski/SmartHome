@@ -1,31 +1,26 @@
 package jb.smarthome.activity;
 
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.Toast;
-import android.widget.VideoView;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jb.smarthome.R;
 import jb.smarthome.RetrofitClientInstance;
-import jb.smarthome.adapter.TemperatureAdapter;
-import jb.smarthome.api.model.Temperature;
-import jb.smarthome.api.model.TemperatureResponse;
 import jb.smarthome.api.service.CameraService;
-import jb.smarthome.api.service.TemperatureService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class CameraActivity extends AppCompatActivity {
-    private VideoView streamView;
     private MediaController mediaController;
     private int servoPos;
 
@@ -36,6 +31,8 @@ public class CameraActivity extends AppCompatActivity {
     Button servoCenterButton;
     @BindView(R.id.servoRightButton)
     Button servoRightButton;
+    @BindView(R.id.streamView)
+    WebView streamView;
 
 
     @Override
@@ -43,10 +40,35 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         ButterKnife.bind(this);
-        streamView = (VideoView) findViewById(R.id.videoView);
+
+        int default_zoom_level=100;
+        final String URL = "http://192.168.43.48:8080/stream";
+        streamView.setInitialScale(default_zoom_level);
+        streamView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return (motionEvent.getAction() == MotionEvent.ACTION_MOVE);
+            }
+        });
+
+        streamView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        // Get the width and height of the view because its different for different phone or table layouts
+        // Pass these values to the URL in the web view to display the HTTP stream
+        streamView.post(new Runnable()
+        {
+
+            @Override
+            public void run() {
+                int width = streamView.getWidth();
+                int height = streamView.getHeight();
+                streamView.loadUrl(URL + "?width="+width+"&height="+height);
+
+            }
+        });
 
 
     }
+
 
 
     @OnClick(R.id.servoLeftButton)
@@ -132,18 +154,5 @@ private void toggleButton(){
         }
 }
 
-    private void playStream() {
-        Uri UriSrc = Uri.parse("192.168.43.48:8090");
-        if (UriSrc == null) {
-            Toast.makeText(CameraActivity.this,
-                    "UriSrc == null", Toast.LENGTH_LONG).show();
-        } else {
-            streamView.setVideoURI(UriSrc);
-            mediaController = new MediaController(this);
-            streamView.setMediaController(mediaController);
-            streamView.start();
 
-
-        }
-    }
 }
