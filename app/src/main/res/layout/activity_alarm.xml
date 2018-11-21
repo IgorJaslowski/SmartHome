@@ -11,6 +11,7 @@
     tools:context=".activity.AlarmActivity">
 
     <TextView
+        android:fontFamily="@font/roboto_medium"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorHeader"
@@ -33,34 +34,62 @@
             android:layout_height="158dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="50dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="122dp"
+                android:layout_height="114dp"
+                android:src="@mipmap/alert_72px" />
 
 
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="87dp"
-                android:layout_gravity="center"
-                android:clickable="false"
-                android:drawableLeft="@mipmap/alert_72px"
-                android:focusable="false"
-                android:gravity="center"
-                android:text="Alarm jest \n On/Off"
-                android:textColor="@color/colorBlack"
-                android:textSize="25sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/getAllSensors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="false"
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="66dp"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Alarm jest włączony"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
 
-                android:drawablePadding="30dp"
-                android:focusable="false"
-                android:gravity="center"
-                android:paddingBottom="12dp"
-                android:textColor="@color/colorBlack"
-                android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp">
+
+                    <Button
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/btn_rounded_corners"
+                        android:text="ON"
+                        android:textColor="@color/white"/>
+
+                    <Button
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_width="70dp"
+                        android:layout_height="45dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/btn_rounded_corners"
+                        android:text="OFF"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 

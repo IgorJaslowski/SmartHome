@@ -11,8 +11,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-       >
+        android:layout_height="246dp">
 
 
         <TextView
@@ -34,14 +33,14 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="126dp"
-                android:layout_height="120dp"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
                 android:src="@mipmap/czujniki" />
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="81dp"
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical"
                 android:paddingLeft="12dp"
@@ -49,16 +48,17 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="148dp"
+                    android:layout_height="39dp"
                     android:layout_gravity="center"
                     android:clickable="false"
                     android:drawablePadding="30dp"
                     android:focusable="false"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center"
                     android:text="Aktywne czujniki"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/getAllSensors"
@@ -68,6 +68,7 @@
                     android:clickable="false"
                     android:drawablePadding="30dp"
                     android:focusable="false"
+                    android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:paddingBottom="12dp"
                     android:text="3/5"
@@ -75,12 +76,23 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/sensorRefreshBtn"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_baseline_refresh_24px" />
+
+            <ImageView
+                android:id="@+id/sensorSettingsBtn"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_baseline_settings_20px" />
 
         </LinearLayout>
-
-
-
-
 
 
     </FrameLayout>
@@ -90,7 +102,6 @@
         android:id="@+id/sensorListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="12dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         android:paddingLeft="12dp"
