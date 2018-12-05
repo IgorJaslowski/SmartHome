@@ -64,8 +64,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_icon_zarowka" />
-                            <entry key="sourceFile" value="C:\Users\Igor\Desktop\praca\SmartHome\app\src\main\res\mipmap-hdpi\icon_zarowka.svg" />
+                            <entry key="outputName" value="ic_tint_solid" />
+                            <entry key="sourceFile" value="C:\Users\Igor\Desktop\ikony\temp\tint-solid.svg" />
                           </map>
                         </option>
                       </PersistentState>

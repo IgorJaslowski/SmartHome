@@ -7,7 +7,7 @@
     android:layout_marginRight="12dp"
     android:orientation="horizontal"
     android:weightSum="100"
-    android:background="@mipmap/shadow_temperature">
+    android:background="@mipmap/shadow">
 
     <TextView
         android:id="@+id/tempLayoutName"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33.3"
-        android:drawableLeft="@drawable/ic_icon_termometr"
+        android:drawableLeft="@drawable/ic_baseline_thermometer"
         android:drawablePadding="-5dp"
         android:drawableTint="@color/colorIconTemperature"
         android:gravity="center_vertical|center_horizontal"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33.3"
-        android:drawableLeft="@drawable/ic_icon_kropla"
+        android:drawableLeft="@drawable/ic_baseline_tint"
         android:drawablePadding="-20sp"
         android:drawableTint="@color/colorIconWater"
         android:gravity="center_vertical|center_horizontal"

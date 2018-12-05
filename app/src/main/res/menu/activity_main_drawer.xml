@@ -6,30 +6,35 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_alarm"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_notifications_active_24px"
+
             android:title="@string/alarm" />
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_photo_camera_24px"
             android:title="@string/camera" />
         <item
             android:id="@+id/nav_temperature"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_thermometer"
+
             android:title="@string/temperature" />
         <item
             android:id="@+id/nav_sensor"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_baseline_wifi_24px"
+
             android:title="@string/sensors" />
         <item
             android:id="@+id/nav_light"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_lightbulb"
+
             android:title="@string/light" />
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_baseline_settings_20px"
+
             android:title="@string/settings" />
     </group>
 
-    \
+
 
 </menu>

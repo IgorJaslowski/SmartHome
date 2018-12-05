@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
     private BottomNavigationView mMainNav;
     private FrameLayout mFrameLayout;
     private DashboardFragment dashboardFragment;
-    private HomeFragment homeFragment;
+    private StatisticsFragment statisticsFragment;
     private NotificationFragement notificationFragement;
 
 
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 
         dashboardFragment = new DashboardFragment();
         notificationFragement = new NotificationFragement();
-        homeFragment = new HomeFragment();
+        statisticsFragment = new StatisticsFragment();
 
         setFragment(dashboardFragment);
 
@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                  switch(item.getItemId()){
-                     case R.id.navigation_home :
-                         setFragment(homeFragment);
+                     case R.id.navigation_statistics :
+                         setFragment(statisticsFragment);
                          return true;
                      case R.id.navigation_dashboard :
                          setFragment(dashboardFragment);

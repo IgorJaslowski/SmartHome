@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/android_gridview_image"
+        android:tint="@color/colorGridIcon"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="10dp" />
@@ -17,13 +18,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:fontFamily="@font/roboto_bold"
         android:textColor="@color/colorGridText"
-        android:textStyle="bold"
-        android:textSize="16sp" />
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/android_gridview_small_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="8sp"
-        android:textColor="@color/colorGridSmallText"/>
+        android:fontFamily="@font/roboto_light"
+        android:textColor="@color/colorGridSmallText"
+        android:textSize="9sp" />
 </LinearLayout>

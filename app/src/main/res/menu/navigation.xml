@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@mipmap/baseline_home_black_24dp"
+        android:id="@+id/navigation_statistics"
+        android:icon="@drawable/ic_baseline_bar_chart_24px"
         android:title="" />
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@mipmap/baseline_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_dashboard_24px"
         android:title="" />
     <item
         android:id="@+id/navigation_notification"
-        android:icon="@mipmap/baseline_notification_important_black_24dp"
+        android:icon="@drawable/ic_baseline_message_24px"
         android:title="" />
 </menu>

@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:paddingLeft="5dp"
-            android:src="@drawable/ic_icon_smart"
+            android:src="@drawable/ic_baseline_smart_home"
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
