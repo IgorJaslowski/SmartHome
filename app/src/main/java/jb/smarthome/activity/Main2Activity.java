@@ -1,5 +1,6 @@
 package jb.smarthome.activity;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,7 +18,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,6 +55,12 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     ViewPager mViewPager;
     @BindView(R.id.fragmentHeader)
     TextView fragmentHeaderTextView;
+
+
+    //Auth
+    FirebaseAuth auth;
+    FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +143,18 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         });
 
 
+        //TODO
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
     }
+
+    public void singOut(View v){
+        auth.signOut();
+        finish();
+        Intent i = new Intent(this,LoginActivity.class);
+        startActivity(i);
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
