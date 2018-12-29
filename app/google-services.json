@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "511930498939",
+    "firebase_url": "https://smarthome-addb9.firebaseio.com",
+    "project_id": "smarthome-addb9",
+    "storage_bucket": "smarthome-addb9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511930498939:android:c3a8cdbf80e34418",
+        "android_client_info": {
+          "package_name": "jb.smarthome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511930498939-7lo9j88igap7rbq266e5o4kekujvih7f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jb.smarthome",
+            "certificate_hash": "2f57d70e5fceb12f2e72b5c3075a5a107917a7a7"
+          }
+        },
+        {
+          "client_id": "511930498939-q943p9m9g37o80h93ifns7thkddlo83m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1RMM4vqCI0h487VAzh5Q65XsRCjAYwe0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511930498939-q943p9m9g37o80h93ifns7thkddlo83m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
