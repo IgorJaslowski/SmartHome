@@ -86,7 +86,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                         startActivity(new Intent(getActivity(), LightActivity.class));
                         break;
                     case 5:
-                        startActivity(new Intent(getActivity(), BassBoost.Settings.class));
+                       // startActivity(new Intent(getActivity(), BassBoost.Settings.class));
                         break;
                 }
 
