@@ -32,11 +32,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
             android:clickable="false"
-            android:drawableLeft="@mipmap/temperature_72px"
+            android:drawableLeft="@drawable/ic_temperature"
             android:drawablePadding="5dp"
             android:focusable="false"
             android:gravity="center"
-            android:paddingTop="30dp"
+            android:paddingTop="20dp"
             android:textColor="@color/colorFontWhite"
             android:textSize="70sp"
             android:textStyle="bold" />
@@ -47,9 +47,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:clickable="false"
-            android:drawableLeft="@mipmap/water_48px"
+            android:drawableLeft="@drawable/ic_humidity"
             android:drawablePadding="5dp"
             android:focusable="false"
+            android:padding="5dp"
             android:textColor="@color/colorFontWhite"
             android:textSize="60sp" />
     </FrameLayout>

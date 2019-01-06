@@ -112,15 +112,13 @@
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:layout_marginTop="16dp"
+                android:layout_margin="16dp"
                 android:background="@drawable/btn_login_rounded"
                 android:fontFamily="@font/roboto_medium"
+                android:onClick="loginUser"
                 android:text="ZALOGUJ"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:onClick="loginUser"
-                />
+                android:textStyle="bold" />
 
 </LinearLayout>
 </LinearLayout>

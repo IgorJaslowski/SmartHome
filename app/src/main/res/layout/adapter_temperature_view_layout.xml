@@ -40,8 +40,8 @@
         android:drawablePadding="-5dp"
         android:drawableTint="@color/colorIconTemperature"
         android:gravity="center_vertical|center_horizontal"
-        android:paddingBottom="12dp"
         android:paddingTop="12dp"
+        android:paddingBottom="12dp"
         android:textColor="@color/colorGridIcon"
         android:textSize="20sp"
 

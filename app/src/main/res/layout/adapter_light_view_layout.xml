@@ -15,10 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40px"
         android:layout_weight="50"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center_vertical|center_horizontal|start"
-        android:paddingBottom="16dp"
         android:paddingTop="16dp"
-        android:text=""
+        android:paddingBottom="16dp"
         android:textColor="@color/colorGridIcon"
         android:textSize="20sp" />
 
