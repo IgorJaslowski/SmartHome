@@ -14,7 +14,7 @@
     <color name="colorBackgroundMenuHeader">#757575</color>
     <color name="colorBackgroundMenuButton">#1c1c1c</color>
     <color name="colorBurgerMenu">#a3a3a3</color>
-
+    <color name="colorRed">#b70e0e</color>
 
     <!-- Grid colors-->
     <color name="colorGridIcon">#1B1D2A</color>
@@ -25,7 +25,7 @@
 
     <!--Activity colors-->
     <color name="colorBackgroundDark">#1B1D2A</color>
-    <color name="colorFontWhite">#FFF</color>
+    <color name="colorFontWhite">#ffffff</color>
     <color name="colorFontDark">#1B1D2A</color>
     <color name="colorHeader">#272935</color>
     <color name="colorIconOnDarkBg">#666</color>

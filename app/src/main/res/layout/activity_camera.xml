@@ -20,31 +20,71 @@
 
     </WebView>
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Steruj kamerą"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
 
         <Button
             android:id="@+id/servoLeftButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Left" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_rounded_corners"
+            android:drawableLeft="@drawable/ic_arrow_left"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="7dp"
+            android:text="W LEWO"
+            android:textAlignment="center"
+            android:textColor="@color/colorFontWhite"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/servoCenterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Center" />
+            android:background="@drawable/btn_rounded_corners"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="7dp"
+            android:text="WYCENTRUJ"
+            android:textAlignment="center"
+            android:textColor="@color/colorFontWhite"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/servoRightButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Right" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_rounded_corners"
+            android:drawableRight="@drawable/ic_arrow_right"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="7dp"
+            android:text="W PRAWO"
+            android:textAlignment="center"
+            android:textColor="@color/colorFontWhite"
+            android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

@@ -24,7 +24,7 @@ import retrofit2.Response;
 public class LightActivity extends AppCompatActivity {
 
     TextView howMuchIsOn;
-    Switch turnAllOn;
+   // Switch turnAllOn;
 
     ListView listView;
 
@@ -35,7 +35,8 @@ public class LightActivity extends AppCompatActivity {
         setContentView(R.layout.activity_light);
 
         howMuchIsOn = findViewById(R.id.getAllLight);
-        turnAllOn = findViewById(R.id.turnAllOnOff);
+        //TODO: Zamienić na 2 buttony
+       // turnAllOn = findViewById(R.id.turnAllOnOff);
         listView = findViewById(R.id.lightListView);
 
         howMuchIsOn.setText("3/4");

@@ -2,7 +2,6 @@ package jb.smarthome.activity;
 
 
 import android.content.Intent;
-import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -86,7 +85,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                         startActivity(new Intent(getActivity(), LightActivity.class));
                         break;
                     case 5:
-                        startActivity(new Intent(getActivity(), BassBoost.Settings.class));
+                       //startActivity(new Intent(getActivity(), SettingsActivity.class));
                         break;
                 }
 
