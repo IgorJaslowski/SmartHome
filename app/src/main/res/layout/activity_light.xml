@@ -92,7 +92,7 @@ android:background="@drawable/bg_gradient_green_blue"
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/btnLightTurnAllOn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -104,7 +104,7 @@ android:background="@drawable/bg_gradient_green_blue"
                         android:textSize="14sp" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/btnLightTurnAllOff"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"

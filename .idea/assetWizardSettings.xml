@@ -64,8 +64,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_lock" />
-                            <entry key="sourceFile" value="C:\Users\igorj\Downloads\lock.svg" />
+                            <entry key="outputName" value="ic_logout" />
+                            <entry key="sourceFile" value="D:\logout.svg" />
                           </map>
                         </option>
                       </PersistentState>

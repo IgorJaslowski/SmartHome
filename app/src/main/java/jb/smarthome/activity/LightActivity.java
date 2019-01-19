@@ -11,6 +11,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import jb.smarthome.RetrofitClientInstance;
 import jb.smarthome.api.model.Light;
 import jb.smarthome.R;
@@ -22,25 +24,24 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LightActivity extends AppCompatActivity {
-
+    @BindView(R.id.getAllLight)
     TextView howMuchIsOn;
-   // Switch turnAllOn;
-
+    @BindView(R.id.lightListView)
     ListView listView;
+    @BindView(R.id.btnLightTurnAllOn)
+    Button btnLightTurnAllOn;
+    @BindView(R.id.btnLightTurnAllOff)
+    Button btnLightTurnAllOff;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
+        ButterKnife.bind(this);
 
-        howMuchIsOn = findViewById(R.id.getAllLight);
-        //TODO: Zamienić na 2 buttony
-       // turnAllOn = findViewById(R.id.turnAllOnOff);
-        listView = findViewById(R.id.lightListView);
 
         howMuchIsOn.setText("3/4");
-
 
         final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
         Call<LightResponse> call = service.getState();
@@ -61,7 +62,36 @@ public class LightActivity extends AppCompatActivity {
 
         });
 
+    }
 
+    @OnClick(R.id.btnLightTurnAllOn)
+    void turnAllOn() {
+        final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
+        Call<Void> call = service.turnAllOn();
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+            }
+        });
+    }
+
+    @OnClick(R.id.btnLightTurnAllOff)
+    void turnAllOff() {
+        final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
+        Call<Void> call = service.turnAllOff();
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+            }
+        });
     }
 
 }
