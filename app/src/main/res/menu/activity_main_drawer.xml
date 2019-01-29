@@ -33,11 +33,10 @@
             android:icon="@drawable/ic_baseline_settings_20px"
 
             android:title="@string/settings" />
-        <!--<item-->
-            <!--android:id="@+id/logoutBtn"-->
-
-            <!--android:onClick="singOut"-->
-            <!--android:title="@string/logout" />-->
+        <item
+            android:id="@+id/logoutBtn"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
     </group>
 
 

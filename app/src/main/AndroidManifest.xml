@@ -30,13 +30,6 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:background="@color/colorTitleBackground"
-            android:label="@string/title_app"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
         <activity android:name=".activity.LightActivity" />
         <activity android:name=".activity.TemperatureActivity" />
         <activity android:name=".activity.SensorActivity" />

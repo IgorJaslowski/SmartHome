@@ -1,5 +1,6 @@
 package jb.smarthome.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -16,10 +17,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,7 +49,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
      */
 
 
-
     @BindView(R.id.drawer_layout1)
     DrawerLayout drawer;
     @BindView(R.id.tabs)
@@ -55,19 +57,21 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     ViewPager mViewPager;
     @BindView(R.id.fragmentHeader)
     TextView fragmentHeaderTextView;
+    @BindView(R.id.nav_view)
+    NavigationView nav;
 
 
     //Auth
     FirebaseAuth auth;
     FirebaseUser user;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
-
+        nav.setNavigationItemSelectedListener(this);
+        nav.bringToFront();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -80,6 +84,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         toggle.getDrawerArrowDrawable().setSpinEnabled(true);
         toolbar.setContentInsetsAbsolute(toolbar.getContentInsetRight(), 500);
         toggle.syncState();
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -87,7 +92,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         // Set up the ViewPager with the sections adapter.
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager){
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 super.onTabSelected(tab);
@@ -125,13 +130,11 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
             @Override
             public void onPageSelected(int i) {
-                if(i==0){
+                if (i == 0) {
                     fragmentHeaderTextView.setText("Menu");
-                }
-                else if(i==1){
+                } else if (i == 1) {
                     fragmentHeaderTextView.setText("Powiadomienia");
-                }
-                else{
+                } else {
                     fragmentHeaderTextView.setText("Statystyki");
                 }
             }
@@ -146,36 +149,16 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         //TODO
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+
+
     }
 
-    public void singOut(View v){
+
+    public void singOut() {
         auth.signOut();
         finish();
-        Intent i = new Intent(this,LoginActivity.class);
+        Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
-    }
-
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_alarm) {
-
-        } else if (id == R.id.nav_sensor) {
-
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_temperature) {
-
-        } else if (id == R.id.nav_light) {
-
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
 
@@ -186,7 +169,39 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Log.d("Hello", "called navigation");
+        int id = menuItem.getItemId();
 
+        menuItem.setChecked(true);
+        drawer.closeDrawers();
+        switch (menuItem.getItemId()) {
+            case R.id.nav_alarm:
+                startActivity(new Intent(this, AlarmActivity.class));
+                break;
+            case R.id.nav_camera:
+                startActivity(new Intent(this, CameraActivity.class));
+                break;
+            case R.id.nav_light:
+                startActivity(new Intent(this, LightActivity.class));
+                break;
+            case R.id.nav_sensor:
+                startActivity(new Intent(this, SensorActivity.class));
+                break;
+            case R.id.nav_temperature:
+                startActivity(new Intent(this, TemperatureActivity.class));
+                break;
+            case R.id.logoutBtn:
+                singOut();
+                break;
+            default:
+                drawer.closeDrawer(GravityCompat.START);
+                break;
+
+        }
+        return false;
+    }
 
 
     /**
@@ -203,14 +218,14 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         public Fragment getItem(int position) {
 
 
-            switch(position){
-                case 0 :
+            switch (position) {
+                case 0:
                     DashboardFragment dashboardFragment = new DashboardFragment();
                     return dashboardFragment;
-                case 1 :
+                case 1:
                     NotificationFragement notificationFragement = new NotificationFragement();
                     return notificationFragement;
-                case 2 :
+                case 2:
                     StatisticsFragment statisticsFragment = new StatisticsFragment();
                     return statisticsFragment;
 
