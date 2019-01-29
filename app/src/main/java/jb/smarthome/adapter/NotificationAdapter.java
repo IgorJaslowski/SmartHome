@@ -24,7 +24,7 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
     public NotificationAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Notification> objects) {
         super(context, resource, objects);
         mContext = context;
-        mResource =resource;
+        mResource = resource;
     }
 
     @SuppressLint("ResourceAsColor")
@@ -32,19 +32,18 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //get the temperature information
-        String notifyDescription = getItem(position).getDescription();
+        String notifyDescription = getItem(position).getDescription().toString();
         String notifyDate = getItem(position).getDate();
 
 
         //Create the object with the data
-        Notification notification = new Notification(notifyDescription,notifyDate);
+        Notification notification = new Notification(notifyDescription, notifyDate);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        convertView = inflater.inflate(mResource,parent,false);
+        convertView = inflater.inflate(mResource, parent, false);
 
         TextView notifyDescriptionTextView = (TextView) convertView.findViewById(R.id.notifyDescription);
         TextView notifyDateTextView = (TextView) convertView.findViewById(R.id.notifyDate);
-
 
 
         notifyDateTextView.setText(notifyDate.toString());

@@ -12,10 +12,20 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import jb.smarthome.api.model.Notification;
 import jb.smarthome.R;
@@ -30,9 +40,14 @@ public class NotificationFragement extends Fragment {
     TextView dateTextView;
     ListView listView;
 
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
+
     public NotificationFragement() {
         // Required empty public constructor
     }
+
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
@@ -47,27 +62,25 @@ public class NotificationFragement extends Fragment {
         dateTextView = (TextView) getView().findViewById(R.id.notifyDate);
         listView = (ListView) getView().findViewById(R.id.notificationListView);
 
-        ArrayList<Notification> notificationArrayList = new ArrayList<>();
-        Notification notify1 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify2 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify3 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify4 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify5 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify6 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify7 = new Notification("Zapalono światło w Kuchnia",getDateTime());
-        Notification notify8 = new Notification("Zapalono światło w Kuchnia",getDateTime());
+        /*Loading notifications from REALTIME DATABASE and added to notification fragment */
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Notification> notificationArrayList = new ArrayList<>();
 
-        notificationArrayList.add(notify1);
-        notificationArrayList.add(notify2);
-        notificationArrayList.add(notify3);
-        notificationArrayList.add(notify4);
-        notificationArrayList.add(notify5);
-        notificationArrayList.add(notify6);
-        notificationArrayList.add(notify7);
-        notificationArrayList.add(notify8);
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    notificationArrayList.add(new Notification(postSnapshot.getValue().toString(), postSnapshot.getKey()));
+                }
+                NotificationAdapter adapter = new NotificationAdapter(getContext(), R.layout.adapter_notification_view_layout, notificationArrayList);
+                listView.setAdapter(adapter);
+            }
 
-        NotificationAdapter adapter = new NotificationAdapter(getContext(),R.layout.adapter_notification_view_layout,notificationArrayList);
-        listView.setAdapter(adapter);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     @Override

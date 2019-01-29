@@ -1,17 +1,19 @@
 package jb.smarthome.api.model;
 
+import com.google.firebase.database.DataSnapshot;
+
 public class Notification {
     private String status;
-    private String description;
+    private Object description;
     private String date;
 
-    public Notification(String status, String description, String date) {
+    public Notification(String status, Object description, String date) {
         this.status = status;
         this.description = description;
         this.date = date;
     }
 
-    public Notification(String description, String date) {
+    public Notification(Object description, String date) {
         this.description = description;
         this.date = date;
     }
@@ -24,11 +26,11 @@ public class Notification {
         this.status = status;
     }
 
-    public String getDescription() {
+    public Object getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(Object description) {
         this.description = description;
     }
 
