@@ -48,37 +48,27 @@ public class LightActivity extends AppCompatActivity {
     @BindView(R.id.btnLightTurnAllOff)
     Button btnLightTurnAllOff;
 
-
-    Locale locale;
-
-
-    Date c = Calendar.getInstance().getTime();
-    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy-hh-mm-ss");
-    String formattedDate = df.format(c);
+    Date date;
+    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy-HH-mm-ss");
+    String formattedDate;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-   DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
+    DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
     //DatabaseReference userNotify = myRef.child(user.getUid());
     Map notify = new HashMap();
 
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("USER: "+user.getEmail());
+        System.out.println("USER: " + user.getEmail());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
         ButterKnife.bind(this);
 
 
         howMuchIsOn.setText("3/4");
-
 
 
         final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
@@ -115,7 +105,9 @@ public class LightActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
             }
         });
-        notify.put(Calendar.getInstance().getTime().toString(),"Zapalono wszystkie światła");
+        date = Calendar.getInstance().getTime();
+        formattedDate = df.format(date);
+        notify.put(formattedDate, "Zapalono wszystkie światła");
         myRef.updateChildren(notify);
 
     }
@@ -133,7 +125,9 @@ public class LightActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
             }
         });
-        notify.put(Calendar.getInstance().getTime().toString(),"Zgaszono wszystkie światła");
+        date = Calendar.getInstance().getTime();
+        formattedDate = df.format(date);
+        notify.put(formattedDate, "Zgaszono wszystkie światła");
         myRef.updateChildren(notify);
     }
 
