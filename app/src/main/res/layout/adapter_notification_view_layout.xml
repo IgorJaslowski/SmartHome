@@ -9,12 +9,13 @@
     android:orientation="horizontal">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/notifyType"
         android:layout_width="8dp"
         android:layout_height="match_parent"
         android:background="#f00" />
 
     <ImageView
+        android:id="@+id/notifyIcon"
         android:layout_width="40dp"
         android:layout_height="47dp"
         android:contentDescription="Icon Description"

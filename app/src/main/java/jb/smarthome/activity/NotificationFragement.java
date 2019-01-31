@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -62,7 +63,12 @@ public class NotificationFragement extends Fragment {
                 ArrayList<Notification> notificationArrayList = new ArrayList<>();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    notificationArrayList.add(new Notification(postSnapshot.getValue().toString(), postSnapshot.getKey()));
+                    notificationArrayList.add(new Notification(
+                            postSnapshot.getValue().toString().split(",")[0].substring(1),
+                            postSnapshot.getKey(),
+                            postSnapshot.getValue().toString().split(",")[1].
+                                    substring(1, postSnapshot.getValue().toString().split(",")[1].length()-1)));
+
                 }
                 Collections.reverse(notificationArrayList);
                 NotificationAdapter adapter = new NotificationAdapter(getContext(), R.layout.adapter_notification_view_layout, notificationArrayList);

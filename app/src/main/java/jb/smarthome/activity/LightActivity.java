@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -49,7 +50,7 @@ public class LightActivity extends AppCompatActivity {
     Button btnLightTurnAllOff;
 
     Date date;
-    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy-HH-mm-ss");
+    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
     String formattedDate;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -57,6 +58,7 @@ public class LightActivity extends AppCompatActivity {
     DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
     //DatabaseReference userNotify = myRef.child(user.getUid());
     Map notify = new HashMap();
+    ArrayList arrayList = new ArrayList();
 
 
 
@@ -107,7 +109,8 @@ public class LightActivity extends AppCompatActivity {
         });
         date = Calendar.getInstance().getTime();
         formattedDate = df.format(date);
-        notify.put(formattedDate, "Zapalono wszystkie światła");
+
+        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Zapalono wszystkie światła","warning")));
         myRef.updateChildren(notify);
 
     }
@@ -127,7 +130,7 @@ public class LightActivity extends AppCompatActivity {
         });
         date = Calendar.getInstance().getTime();
         formattedDate = df.format(date);
-        notify.put(formattedDate, "Zgaszono wszystkie światła");
+        notify.put(formattedDate,new ArrayList<String>(Arrays.asList("Zgaszono wszystkie światła","information")));
         myRef.updateChildren(notify);
     }
 
