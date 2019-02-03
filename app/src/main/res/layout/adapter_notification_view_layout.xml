@@ -9,12 +9,13 @@
     android:orientation="horizontal">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/notifyType"
         android:layout_width="8dp"
         android:layout_height="match_parent"
         android:background="#f00" />
 
     <ImageView
+        android:id="@+id/notifyIcon"
         android:layout_width="40dp"
         android:layout_height="47dp"
         android:contentDescription="Icon Description"
@@ -24,12 +25,12 @@
 
     <TextView
         android:id="@+id/notifyDescription"
-        android:layout_width="181dp"
+        android:layout_width="175dp"
         android:layout_height="match_parent"
         android:fontFamily="@font/roboto_light"
         android:gravity="center_vertical|center_horizontal"
-        android:paddingTop="12dp"
         android:paddingBottom="12dp"
+        android:paddingTop="12dp"
         android:text=""
         android:textColor="@color/colorGridIcon"
         android:textSize="12dp" />

@@ -59,5 +59,10 @@
     <color name="color_notify_date">#adadad</color>
     <color name="alarm_btn_1">#00AEFF</color>
 
+    <!--Notifications Colors -->
+    <color name="warningNotify">#f00</color>
+    <color name="goodNotify">#0f9d58</color>
+    <color name="infNotify">#00aeff</color>
+
 
 </resources>

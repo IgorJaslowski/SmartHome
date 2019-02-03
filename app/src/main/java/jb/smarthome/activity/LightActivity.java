@@ -8,7 +8,23 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,15 +49,29 @@ public class LightActivity extends AppCompatActivity {
     @BindView(R.id.btnLightTurnAllOff)
     Button btnLightTurnAllOff;
 
+    Date date;
+    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+    String formattedDate;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
+    //DatabaseReference userNotify = myRef.child(user.getUid());
+    Map notify = new HashMap();
+    ArrayList arrayList = new ArrayList();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("USER: " + user.getEmail());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
         ButterKnife.bind(this);
 
 
         howMuchIsOn.setText("3/4");
+
 
         final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
         Call<LightResponse> call = service.getState();
@@ -77,6 +107,12 @@ public class LightActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
             }
         });
+        date = Calendar.getInstance().getTime();
+        formattedDate = df.format(date);
+
+        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Zapalono wszystkie światła","warning")));
+        myRef.updateChildren(notify);
+
     }
 
     @OnClick(R.id.btnLightTurnAllOff)
@@ -92,6 +128,10 @@ public class LightActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
             }
         });
+        date = Calendar.getInstance().getTime();
+        formattedDate = df.format(date);
+        notify.put(formattedDate,new ArrayList<String>(Arrays.asList("Zgaszono wszystkie światła","information")));
+        myRef.updateChildren(notify);
     }
 
 }

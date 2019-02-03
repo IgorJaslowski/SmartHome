@@ -14,6 +14,6 @@ public interface LightService {
     Call<Void> turnOffLed(@Query("pin")int pin);
     @GET("/turnAllOn")
     Call<Void> turnAllOn();
-    @GET("/turnAllOn")
+    @GET("/turnAllOff")
     Call<Void> turnAllOff();
 }

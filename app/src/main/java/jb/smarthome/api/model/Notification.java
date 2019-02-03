@@ -1,34 +1,39 @@
 package jb.smarthome.api.model;
 
+
+
 public class Notification {
-    private String status;
-    private String description;
+    private String type;
+    private Object description;
     private String date;
 
-    public Notification(String status, String description, String date) {
-        this.status = status;
+
+
+
+    public Notification( Object description, String date,String type) {
+        this.type = type;
         this.description = description;
         this.date = date;
     }
 
-    public Notification(String description, String date) {
+    public Notification(Object description, String date) {
         this.description = description;
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
+    public String getType() {
+        return type;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getDescription() {
+    public Object getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(Object description) {
         this.description = description;
     }
 
@@ -39,4 +44,14 @@ public class Notification {
     public void setDate(String date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "Notification{" +
+                "type='" + type + '\'' +
+                ", description=" + description +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }
+
