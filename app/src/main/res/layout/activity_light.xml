@@ -123,7 +123,9 @@ android:background="@drawable/bg_gradient_green_blue"
 
     </FrameLayout>
 
-
+    <include
+        android:id="@+id/part"
+        layout="@layout/part_disconnected_error" />
     <ListView
         android:id="@+id/lightListView"
         android:layout_width="match_parent"

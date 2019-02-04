@@ -2,7 +2,9 @@ package jb.smarthome.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -48,6 +50,8 @@ public class LightActivity extends AppCompatActivity {
     Button btnLightTurnAllOn;
     @BindView(R.id.btnLightTurnAllOff)
     Button btnLightTurnAllOff;
+    @BindView(R.id.part)
+    LinearLayout linearLayout;
 
     Date date;
     SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
@@ -83,6 +87,7 @@ public class LightActivity extends AppCompatActivity {
                 System.out.println(response.body().toString());
                 LightAdapter adapter = new LightAdapter(getBaseContext(), R.layout.adapter_light_view_layout, lightArrayList);
                 listView.setAdapter(adapter);
+                linearLayout.setVisibility(View.GONE);
             }
 
             @Override
