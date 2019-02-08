@@ -2,7 +2,7 @@ package jb.smarthome.api.model;
 
 public class Sensor {
     private String name;
-    private Boolean detection;
+    private boolean detection;
 
     public String getName() {
         return name;
@@ -12,15 +12,15 @@ public class Sensor {
         this.name = name;
     }
 
-    public Boolean getDetection() {
+    public boolean getDetection() {
         return detection;
     }
 
-    public void setDetection(Boolean detection) {
+    public void setDetection(boolean detection) {
         this.detection = detection;
     }
 
-    public Sensor(String name, Boolean detection) {
+    public Sensor(String name, boolean detection) {
 
         this.name = name;
         this.detection = detection;

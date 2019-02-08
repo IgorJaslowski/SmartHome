@@ -1,5 +1,6 @@
 package jb.smarthome.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -21,15 +22,17 @@ public class SensorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
-
+        Intent intent = getIntent();
+        String gasResponse = intent.getStringExtra("gas");
+        System.out.println("GAS ACITIVITY :"+gasResponse);
 
         listView = findViewById(R.id.sensorListView);
 
 
 
         ArrayList<Sensor> sensorArrayList = new ArrayList<>();
-        Sensor sensor1 = new Sensor("Czujnik ruchu", true);
-        Sensor sensor2 = new Sensor("Czujnik ruchu", true);
+        Sensor sensor1 = new Sensor("Czujnik ognia", true);
+        Sensor sensor2 = new Sensor("Czujnik gazu", Boolean.parseBoolean(gasResponse));
         Sensor sensor3 = new Sensor("Czujnik ruchu", true);
 
 

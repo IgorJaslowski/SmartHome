@@ -27,9 +27,20 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jb.smarthome.R;
+import jb.smarthome.RetrofitClientInstance;
+import jb.smarthome.adapter.TemperatureAdapter;
+import jb.smarthome.api.model.Temperature;
+import jb.smarthome.api.model.TemperatureResponse;
+import jb.smarthome.api.service.SensorService;
+import jb.smarthome.api.service.TemperatureService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,6 +75,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     //Auth
     FirebaseAuth auth;
     FirebaseUser user;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +187,10 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         Log.d("Hello", "called navigation");
         int id = menuItem.getItemId();
 
+
+
+
+
         menuItem.setChecked(true);
         drawer.closeDrawers();
         switch (menuItem.getItemId()) {
@@ -187,7 +204,9 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 startActivity(new Intent(this, LightActivity.class));
                 break;
             case R.id.nav_sensor:
-                startActivity(new Intent(this, SensorActivity.class));
+//                Intent sensorIntent = new Intent(getApplicationContext(),SensorActivity.class);
+//                sensorIntent.putExtra("gas",gasResponse);
+//                startActivity(sensorIntent);
                 break;
             case R.id.nav_temperature:
                 startActivity(new Intent(this, TemperatureActivity.class));
@@ -241,4 +260,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             return 3;
         }
     }
+
+
 }
+

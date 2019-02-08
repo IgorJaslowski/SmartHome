@@ -11,7 +11,12 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import jb.smarthome.R;
+import jb.smarthome.RetrofitClientInstance;
 import jb.smarthome.adapter.GridViewAdapter;
+import jb.smarthome.api.service.SensorService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +51,8 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             "3/5 WŁĄCZONYCH",
             "5 DOSTĘPNYCH USTAWIEŃ"
     };
+    String gasResponse = "0";
+    Thread sensorThread;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -62,6 +69,21 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         androidGridView = (GridView) view.findViewById(R.id.gridview);
         androidGridView.setAdapter(adapterViewAndroid);
 
+        sensorThread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    gasSensor();
+                    System.out.println(gasResponse);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        sensorThread.start();
 
 
         androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,7 +101,9 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                         startActivity(new Intent(getActivity(), TemperatureActivity.class));
                         break;
                     case 3:
-                        startActivity(new Intent(getActivity(), SensorActivity.class));
+                        Intent sensorIntent = new Intent(getActivity(),SensorActivity.class);
+                        sensorIntent.putExtra("gas",gasResponse);
+                        startActivity(sensorIntent);
                         break;
                     case 4:
                         startActivity(new Intent(getActivity(), LightActivity.class));
@@ -94,6 +118,24 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
 
 
         return view;
+    }
+    private void gasSensor() {
+        SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
+        Call<String> call = service.gasSensor();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                gasResponse = response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                gasResponse = "0";
+            }
+
+        });
+
     }
 
     @Override
