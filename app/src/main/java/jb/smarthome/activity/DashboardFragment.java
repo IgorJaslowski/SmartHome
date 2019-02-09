@@ -100,15 +100,15 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         sensorThread = new Thread() {
             @Override
             public void run() {
-                while (true) {
+                while (Boolean.parseBoolean(gasResponse)) {
                     gasSensor();
-                    if(Boolean.parseBoolean(gasResponse) ){
+                    if(true ){
 
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ","warning")));
                         myRef.updateChildren(notify);
-                       /* pushNotification();
+                        pushNotification();/*
                         try {
                             Thread.sleep(15000);
                         } catch (InterruptedException e) {
@@ -200,7 +200,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         PendingIntent contentIntent = PendingIntent.getActivity(getActivity(),0,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
 
-        NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager manager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0,builder.build());
     }
     @Override
