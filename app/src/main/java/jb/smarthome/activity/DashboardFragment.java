@@ -100,9 +100,9 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         sensorThread = new Thread() {
             @Override
             public void run() {
-                while (Boolean.parseBoolean(gasResponse)) {
+                while (true) {
                     gasSensor();
-                    if(true ){
+                    if(Boolean.parseBoolean(gasResponse) ){
 
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
