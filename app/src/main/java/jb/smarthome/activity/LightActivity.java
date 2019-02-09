@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -52,6 +53,8 @@ public class LightActivity extends AppCompatActivity {
     Button btnLightTurnAllOff;
     @BindView(R.id.part)
     LinearLayout linearLayout;
+    @BindView(R.id.lightContent)
+    FrameLayout lightContent;
 
     Date date;
     SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
@@ -88,11 +91,15 @@ public class LightActivity extends AppCompatActivity {
                 LightAdapter adapter = new LightAdapter(getBaseContext(), R.layout.adapter_light_view_layout, lightArrayList);
                 listView.setAdapter(adapter);
                 linearLayout.setVisibility(View.GONE);
+                lightContent.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onFailure(Call<LightResponse> call, Throwable t) {
                 Toast.makeText(LightActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                lightContent.setVisibility(View.GONE);
+                linearLayout.setVisibility(View.VISIBLE);
+
             }
 
         });

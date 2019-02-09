@@ -1,9 +1,13 @@
 package jb.smarthome.activity;
 
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +28,7 @@ import retrofit2.Response;
 public class DashboardFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     GridView androidGridView;
-
+    Context mContext;
     String[] gridViewString = {
             "Alarm",
             "Kamera",
@@ -43,7 +47,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             R.drawable.ic_baseline_settings_20px
 
     };
-    String[] gridViewSmallText ={
+    String[] gridViewSmallText = {
             "WYŁĄCZONY",
             "WYŁĄCZONA",
             "i WILGOTNOŚĆ POWIETRZA",
@@ -52,6 +56,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             "5 DOSTĘPNYCH USTAWIEŃ"
     };
     String gasResponse = "0";
+    String fireResponse = "0";
     Thread sensorThread;
 
     public DashboardFragment() {
@@ -65,7 +70,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
 
-        GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId,gridViewSmallText);
+        GridViewAdapter adapterViewAndroid = new GridViewAdapter(getContext(), gridViewString, gridViewImageId, gridViewSmallText);
         androidGridView = (GridView) view.findViewById(R.id.gridview);
         androidGridView.setAdapter(adapterViewAndroid);
 
@@ -74,7 +79,15 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
             public void run() {
                 while (true) {
                     gasSensor();
-                    System.out.println(gasResponse);
+                    if(Boolean.parseBoolean(gasResponse) ){
+                        pushNotification();
+                        try {
+                            Thread.sleep(15000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
@@ -101,15 +114,14 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                         startActivity(new Intent(getActivity(), TemperatureActivity.class));
                         break;
                     case 3:
-                        Intent sensorIntent = new Intent(getActivity(),SensorActivity.class);
-                        sensorIntent.putExtra("gas",gasResponse);
+                        Intent sensorIntent = new Intent(getActivity(), SensorActivity.class);
                         startActivity(sensorIntent);
                         break;
                     case 4:
                         startActivity(new Intent(getActivity(), LightActivity.class));
                         break;
                     case 5:
-                       //startActivity(new Intent(getActivity(), SettingsActivity.class));
+                        //startActivity(new Intent(getActivity(), SettingsActivity.class));
                         break;
                 }
 
@@ -119,6 +131,7 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
 
         return view;
     }
+
     private void gasSensor() {
         SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
         Call<String> call = service.gasSensor();
@@ -128,16 +141,40 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                 gasResponse = response.body();
 
             }
-
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 gasResponse = "0";
             }
-
         });
-
     }
+    private void fireSensor() {
+        SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
+        Call<String> call = service.fireSensor();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                fireResponse = response.body();
 
+            }
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                fireResponse = "0";
+            }
+        });
+    }
+    private void pushNotification(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
+                .setSmallIcon(R.mipmap.czujniki)
+                .setContentTitle("Tytul")
+                .setContentText("Wykryto GAZ!");
+
+        Intent notificationIntent = new Intent(getActivity(),DashboardFragment.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(getActivity(),0,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0,builder.build());
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

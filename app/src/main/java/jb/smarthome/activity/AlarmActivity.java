@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +26,8 @@ public class AlarmActivity extends AppCompatActivity {
     Button btnAlarmOff;
     @BindView(R.id.btnAlarm)
     Button btnAlarm;
+    @BindView(R.id.disconnectedAlarm)
+    LinearLayout disconnectedLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

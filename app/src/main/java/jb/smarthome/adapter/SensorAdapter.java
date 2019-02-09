@@ -39,7 +39,7 @@ public class SensorAdapter extends ArrayAdapter<Sensor> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //get the temperature information
         String name = getItem(position).getName();
-        Boolean detection = getItem(position).getDetection();
+        boolean detection = getItem(position).getDetection();
 
 
 
@@ -66,7 +66,7 @@ public class SensorAdapter extends ArrayAdapter<Sensor> {
 
 
         nameTextView.setText(name);
-        detectionTextView.setText("Odczyt: " +"true/false");
+        detectionTextView.setText(true?"Wykryto zagrożenie!":"Bezpiecznie");
 
 
         return convertView;
