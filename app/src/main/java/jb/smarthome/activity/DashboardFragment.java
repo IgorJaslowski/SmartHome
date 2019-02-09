@@ -14,6 +14,19 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import jb.smarthome.R;
 import jb.smarthome.RetrofitClientInstance;
 import jb.smarthome.adapter.GridViewAdapter;
@@ -59,6 +72,16 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
     String fireResponse = "0";
     Thread sensorThread;
 
+    Date date;
+    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+    String formattedDate;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
+    //DatabaseReference userNotify = myRef.child(user.getUid());
+    Map notify = new HashMap();
+
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -80,12 +103,17 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                 while (true) {
                     gasSensor();
                     if(Boolean.parseBoolean(gasResponse) ){
-                        pushNotification();
+
+                        date = Calendar.getInstance().getTime();
+                        formattedDate = df.format(date);
+                        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ","warning")));
+                        myRef.updateChildren(notify);
+                       /* pushNotification();
                         try {
                             Thread.sleep(15000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
-                        }
+                        }*/
                     }
 
                     try {
