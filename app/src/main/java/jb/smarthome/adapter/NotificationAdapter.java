@@ -64,7 +64,6 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
                 icon.setImageResource(R.drawable.ic_check_circle_solid);
                 break;
         }
-        System.out.println(notification.toString());
 
         notifyDateTextView.setText(notifyDate.toString());
         notifyDescriptionTextView.setText(notifyDescription);

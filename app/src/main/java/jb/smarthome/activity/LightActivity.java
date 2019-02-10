@@ -62,7 +62,7 @@ public class LightActivity extends AppCompatActivity {
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia");
+    DatabaseReference myRef = database.getReference("Powiadomienia");
     //DatabaseReference userNotify = myRef.child(user.getUid());
     Map notify = new HashMap();
     ArrayList arrayList = new ArrayList();
@@ -71,7 +71,6 @@ public class LightActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("USER: " + user.getEmail());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
         ButterKnife.bind(this);

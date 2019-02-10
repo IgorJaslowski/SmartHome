@@ -1,8 +1,9 @@
 package jb.smarthome.api.model;
 
 
+import java.io.Serializable;
 
-public class Notification {
+public class Notification implements Serializable {
     private String type;
     private Object description;
     private String date;

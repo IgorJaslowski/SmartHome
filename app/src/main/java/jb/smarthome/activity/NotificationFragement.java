@@ -42,13 +42,24 @@ public class NotificationFragement extends Fragment {
     TextView desriptionTextView;
     TextView dateTextView;
     ListView listView;
+    private ArrayList<Notification> data;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     //DatabaseReference myRef = database.getReference(user.getUid()).child("Powiadomienia").orderByKey();
-    Query myRef = database.getReference(user.getUid()).child("Powiadomienia");
+    Query myRef = database.getReference("Powiadomienia");
+
     public NotificationFragement() {
         // Required empty public constructor
+    }
+
+    public static NotificationFragement newInstance(ArrayList<Notification> data) {
+        NotificationFragement fragement = new NotificationFragement();
+        Bundle args = new Bundle();
+        args.putSerializable("data", data);
+        fragement.setArguments(args);
+
+        return fragement;
     }
 
     @Override
@@ -56,7 +67,6 @@ public class NotificationFragement extends Fragment {
         super.onResume();
         listView = (ListView) getView().findViewById(R.id.notificationListView);
 
-        /*Loading notifications from REALTIME DATABASE and added to notification fragment */
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -71,9 +81,11 @@ public class NotificationFragement extends Fragment {
 
                 }
                 Collections.reverse(notificationArrayList);
-                NotificationAdapter adapter = new NotificationAdapter(getContext(), R.layout.adapter_notification_view_layout, notificationArrayList);
+                NotificationAdapter adapter = new NotificationAdapter(getActivity(), R.layout.adapter_notification_view_layout, notificationArrayList);
                 adapter.notifyDataSetChanged();
                 listView.setAdapter(adapter);
+                System.out.println("@@@@@@@@@@@@@@@@" + adapter.getItem(0));
+
 
             }
 
@@ -82,13 +94,7 @@ public class NotificationFragement extends Fragment {
 
             }
         });
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        desriptionTextView = (TextView) getView().findViewById(R.id.notifyDescription);
-        dateTextView = (TextView) getView().findViewById(R.id.notifyDate);
 
 
     }
@@ -96,7 +102,12 @@ public class NotificationFragement extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
+
+        desriptionTextView = (TextView) view.findViewById(R.id.notifyDescription);
+        dateTextView = (TextView) view.findViewById(R.id.notifyDate);
+
 
         return view;
     }

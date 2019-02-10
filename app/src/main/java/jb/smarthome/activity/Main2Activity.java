@@ -1,5 +1,7 @@
 package jb.smarthome.activity;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -10,6 +12,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -26,14 +29,28 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jb.smarthome.R;
 import jb.smarthome.RetrofitClientInstance;
+import jb.smarthome.adapter.NotificationAdapter;
 import jb.smarthome.adapter.TemperatureAdapter;
+import jb.smarthome.api.model.Notification;
 import jb.smarthome.api.model.Temperature;
 import jb.smarthome.api.model.TemperatureResponse;
 import jb.smarthome.api.service.SensorService;
@@ -76,7 +93,17 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     FirebaseAuth auth;
     FirebaseUser user;
 
+    String gasResponse = "0";
+    String fireResponse = "0";
+    Thread sensorThread;
+    Date date;
+    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+    String formattedDate;
 
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Powiadomienia");
+    Map notify = new HashMap();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +174,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                     fragmentHeaderTextView.setText("Menu");
                 } else if (i == 1) {
                     fragmentHeaderTextView.setText("Powiadomienia");
+
                 } else {
                     fragmentHeaderTextView.setText("Statystyki");
                 }
@@ -164,7 +192,79 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         user = auth.getCurrentUser();
 
 
+
+        sensorThread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    gasSensor();
+                    System.out.println(gasResponse);
+
+                    if (gasResponse.equals("1")) {
+                        System.out.println(gasResponse);
+                        date = Calendar.getInstance().getTime();
+                        formattedDate = df.format(date);
+                        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ", "warning")));
+                        myRef.updateChildren(notify);
+
+
+//                        try {
+//                            sensorThread.sleep(15000);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+                    }
+
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        sensorThread.start();
+
     }
+
+    private void gasSensor() {
+        SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
+        Call<String> call = service.gasSensor();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                gasResponse = response.body();
+                System.out.println("GAS RESPONSE"+ gasResponse);
+                if(gasResponse == null){
+                    gasResponse = "0";
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                gasResponse = "0";
+            }
+        });
+    }
+
+    private void fireSensor() {
+        SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
+        Call<String> call = service.fireSensor();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                fireResponse = response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                fireResponse = "0";
+            }
+        });
+    }
+
 
 
     public void singOut() {
