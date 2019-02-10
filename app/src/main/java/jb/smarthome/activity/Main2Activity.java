@@ -198,25 +198,24 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             public void run() {
                 while (true) {
                     gasSensor();
-                    System.out.println(gasResponse);
 
                     if (gasResponse.equals("1")) {
-                        System.out.println(gasResponse);
+                        System.out.println("Wykryto gaz"+gasResponse);
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ", "warning")));
                         myRef.updateChildren(notify);
 
 
-//                        try {
-//                            sensorThread.sleep(15000);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
+                        try {
+                            sensorThread.sleep(15000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     try {
-                        Thread.sleep(5000);
+                        sensorThread.sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -234,7 +233,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 gasResponse = response.body();
-                System.out.println("GAS RESPONSE"+ gasResponse);
                 if(gasResponse == null){
                     gasResponse = "0";
                 }

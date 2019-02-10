@@ -44,7 +44,7 @@ public class SensorActivity extends AppCompatActivity {
         sensorArrayList.add(sensor2);
         sensorArrayList.add(sensor3);
 
-        System.out.println(sensorArrayList.toString());
+
         try{
             SensorAdapter adapter = new SensorAdapter(this, R.layout.adapter_sensor_view_layout, sensorArrayList);
             listView.setAdapter(adapter);
