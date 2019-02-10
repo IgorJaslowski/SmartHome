@@ -34,9 +34,6 @@ public class NotificationFragement extends Fragment {
     TextView desriptionTextView;
     TextView dateTextView;
     ListView listView;
-    private ArrayList<Notification> data;
-
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     ArrayList<Notification> notificationArrayList = new ArrayList<>();
 
@@ -52,43 +49,6 @@ public class NotificationFragement extends Fragment {
         fragement.setArguments(args);
 
         return fragement;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-
-       /* myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ArrayList<Notification> notificationArrayList = new ArrayList<>();
-
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    notificationArrayList.add(new Notification(
-                            postSnapshot.getValue().toString().split(",")[0].substring(1),
-                            postSnapshot.getKey(),
-                            postSnapshot.getValue().toString().split(",")[1].
-                                    substring(1, postSnapshot.getValue().toString().split(",")[1].length()-1)));
-
-                }
-                Collections.reverse(notificationArrayList);
-                NotificationAdapter adapter = new NotificationAdapter(getActivity(), R.layout.adapter_notification_view_layout, notificationArrayList);
-                adapter.notifyDataSetChanged();
-                listView.setAdapter(adapter);
-                System.out.println("@@@@@@@@@@@@@@@@" + adapter.getItem(0));
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
-
-
     }
 
     @Override

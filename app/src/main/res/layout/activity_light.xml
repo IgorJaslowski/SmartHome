@@ -28,6 +28,7 @@ android:background="@drawable/bg_gradient_green_blue"
             android:textSize="20sp" />
 
         <LinearLayout
+            android:id="@+id/lightControllerLay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"

@@ -40,7 +40,7 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
 
 
         //Create the object with the data
-        Notification notification = new Notification(notifyDescription, notifyDate,notifyType);
+        Notification notification = new Notification(notifyDescription, notifyDate, notifyType);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
@@ -50,18 +50,26 @@ public class NotificationAdapter extends ArrayAdapter<Notification> {
         View notifyTypeView = (View) convertView.findViewById(R.id.notifyType);
         ImageView icon = (ImageView) convertView.findViewById(R.id.notifyIcon);
 
-   switch (notifyType){
+        switch (notifyType) {
             case "warning":
-                notifyTypeView.setBackgroundColor(Color.RED);
-                icon.setImageResource(R.drawable.ic_exclamation_circle_solid);
+                notifyTypeView.setBackgroundResource(R.color.warningNotify);
+                icon.setImageResource(R.drawable.ic_error_icons_for_windows_10_17);
                 break;
             case "good":
-                notifyTypeView.setBackgroundColor(Color.GREEN);
-                icon.setImageResource(R.drawable.ic_check_circle_solid);
+                notifyTypeView.setBackgroundResource(R.color.colorBackgroundNavBar);
+                icon.setImageResource(R.drawable.ic_good_icons_for_windows_10_17);
                 break;
             case "information":
-                notifyTypeView.setBackgroundColor(Color.BLUE);
-                icon.setImageResource(R.drawable.ic_check_circle_solid);
+                notifyTypeView.setBackgroundResource(R.color.colorTitle);
+                icon.setImageResource(R.drawable.ic_info_icons_for_windows_10_17);
+                break;
+            case "lightON":
+                notifyTypeView.setBackgroundResource(R.color.colorBackgroundNavBar);
+                icon.setImageResource(R.drawable.ic_light_icons_for_windows_10_22);
+                break;
+            case "lightOFF":
+                notifyTypeView.setBackgroundResource(R.color.colorTitle);
+                icon.setImageResource(R.drawable.ic_light_icons_for_windows_10_22);
                 break;
         }
 

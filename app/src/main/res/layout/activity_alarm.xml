@@ -31,29 +31,31 @@
         android:textColor="#ccc" />
 
     <LinearLayout
+        android:id="@+id/alarmControlLay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp">
 
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@mipmap/shadow">
+            android:layout_height="250dp"
+            android:background="@mipmap/shadow"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="16dp">
 
 
             <LinearLayout
                 android:layout_width="294dp"
                 android:layout_height="158dp"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="50dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_alarm_icon" />
 
 
@@ -96,18 +98,18 @@
 
                         <Button
                             android:id="@+id/btnAlarmOn"
-                            android:layout_width="70dp"
-                            android:layout_height="45dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:background="@drawable/btn_login_rounded"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="WŁĄCZ"
+                            android:text="UZBRÓJ"
                             android:textColor="@color/white" />
 
                         <Button
                             android:id="@+id/btnAlarmOff"
-                            android:layout_width="70dp"
-                            android:layout_height="45dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:background="@drawable/btn_rounded_corners"
                             android:fontFamily="@font/roboto_bold"
@@ -118,14 +120,14 @@
 
                     <Button
                         android:id="@+id/btnAlarm"
-                        android:layout_width="80dp"
-                        android:layout_height="45dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/btn_rounded_red"
+                        android:background="#00000000"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="URUCHOM"
-                        android:textColor="@color/white" />
+                        android:padding="12dp"
+                        android:text="URUCHOM ALARM !!!"
+                        android:textColor="@color/colorRed" />
 
                 </LinearLayout>
 
@@ -133,11 +135,13 @@
             </LinearLayout>
 
 
-        </GridLayout>
+        </LinearLayout>
     </LinearLayout>
+
     <include
         android:id="@+id/disconnectedAlarm"
-        layout="@layout/part_disconnected_error" />
+        layout="@layout/part_disconnected_error"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

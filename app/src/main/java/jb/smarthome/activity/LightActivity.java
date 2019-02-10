@@ -60,12 +60,10 @@ public class LightActivity extends AppCompatActivity {
     SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
     String formattedDate;
 
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Powiadomienia");
     //DatabaseReference userNotify = myRef.child(user.getUid());
     Map notify = new HashMap();
-    ArrayList arrayList = new ArrayList();
 
 
 
@@ -121,7 +119,7 @@ public class LightActivity extends AppCompatActivity {
         date = Calendar.getInstance().getTime();
         formattedDate = df.format(date);
 
-        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Zapalono wszystkie światła","warning")));
+        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Zapalono wszystkie światła","lightON")));
         myRef.updateChildren(notify);
 
     }
@@ -141,7 +139,7 @@ public class LightActivity extends AppCompatActivity {
         });
         date = Calendar.getInstance().getTime();
         formattedDate = df.format(date);
-        notify.put(formattedDate,new ArrayList<String>(Arrays.asList("Zgaszono wszystkie światła","information")));
+        notify.put(formattedDate,new ArrayList<String>(Arrays.asList("Zgaszono wszystkie światła","lightOFF")));
         myRef.updateChildren(notify);
     }
 

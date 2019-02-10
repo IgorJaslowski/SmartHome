@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
@@ -37,60 +38,16 @@
                 android:layout_height="86dp"
                 android:src="@drawable/ic_sensors" />
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_light"
+                android:padding="12dp"
+                android:text="Obserwuj status możliwych zagrożeń."
+                android:textColor="#ccc" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="81dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/roboto_light"
-                    android:gravity="center"
-                    android:padding="6dp"
-                    android:text="Aktywne czujniki"
-                    android:textColor="#ccc"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/getAllSensors"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="false"
-                    android:drawablePadding="30dp"
-                    android:focusable="false"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:paddingBottom="12dp"
-                    android:text="3/5"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/sensorRefreshBtn"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ic_baseline_refresh_24px" />
-
-            <ImageView
-                android:id="@+id/sensorSettingsBtn"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ic_baseline_settings_20px" />
 
         </LinearLayout>
 

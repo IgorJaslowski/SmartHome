@@ -55,13 +55,13 @@ public class SensorAdapter extends ArrayAdapter<Sensor> {
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.sensorIconImageView);
         if(position == 0){
-            imageView.setImageResource(R.mipmap.fire_48px);
+            imageView.setImageResource(R.drawable.ic_fire_icons_for_windows_10_17);
         }
         else if(position == 1){
-            imageView.setImageResource(R.mipmap.gas_burner_48px);
+            imageView.setImageResource(R.drawable.ic_gas_icons_for_windows_10_17);
         }
         else if(position == 2){
-            imageView.setImageResource(R.mipmap.movement_42px);
+            imageView.setImageResource(R.drawable.ic_motion_icons_for_windows_10_17);
         }
 
 

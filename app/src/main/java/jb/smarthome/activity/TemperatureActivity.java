@@ -22,7 +22,6 @@ import retrofit2.Response;
 
 public class TemperatureActivity extends AppCompatActivity {
 
-    TextView textView;
     TextView tempAvgTextView;
     TextView humidityTextView;
     ListView tempListView;
@@ -56,19 +55,6 @@ public class TemperatureActivity extends AppCompatActivity {
 
         tempListView = findViewById(R.id.temperatureListView);
 
-        // TEST DATA
-    /*    tempAvgTextView.setText("50"+getString(R.string.degreesC));
-        humidityTextView.setText("50");
-        Temperature t1 = new Temperature("t1",100.,200.);
-        Temperature t2 = new Temperature("t1",100.,200.);
-        Temperature t3 = new Temperature("t1",100.,200.);
-        ArrayList<Temperature> temperaturesList = new ArrayList<>();
-        temperaturesList.add(t1);
-        temperaturesList.add(t2);
-        temperaturesList.add(t3);
-        TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(),R.layout.adapter_temperature_view_layout,temperaturesList);
-        tempListView.setAdapter(adapter);*/
-
 
        t1 = new Thread() {
             @Override
@@ -93,7 +79,7 @@ public class TemperatureActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<TemperatureResponse> call, Throwable t) {
-                            Toast.makeText(TemperatureActivity.this, "Brak połączenia z serwerem.", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(TemperatureActivity.this, "Brak połączenia z serwerem.", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -107,7 +93,6 @@ public class TemperatureActivity extends AppCompatActivity {
             }
         };
         t1.start();
-        //TODO zamienić na rx java
 
 
     }

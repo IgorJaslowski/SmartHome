@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -28,12 +29,31 @@ public class AlarmActivity extends AppCompatActivity {
     Button btnAlarm;
     @BindView(R.id.disconnectedAlarm)
     LinearLayout disconnectedLayout;
+    @BindView(R.id.alarmControlLay)
+    LinearLayout alarmControlLay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
         ButterKnife.bind(this);
+
+
+        final AlarmService service = RetrofitClientInstance.getRetrofitInstance().create(AlarmService.class);
+        Call<Boolean> call = service.alarmStatus();
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                disconnectedLayout.setVisibility(View.GONE);
+                alarmControlLay.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                disconnectedLayout.setVisibility(View.VISIBLE);
+                alarmControlLay.setVisibility(View.GONE);
+            }
+        });
     }
 
 

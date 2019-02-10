@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -61,12 +62,12 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
 
     };
     String[] gridViewSmallText = {
-            "WYŁĄCZONY",
-            "WYŁĄCZONA",
+            "Sterowanie alarmem",
+            "Sterowanie kamerą",
             "i WILGOTNOŚĆ POWIETRZA",
-            "11 AKTYWNYCH",
-            "3/5 WŁĄCZONYCH",
-            "5 DOSTĘPNYCH USTAWIEŃ"
+            "Obserwacja zagrożeń",
+            "Sterowanie światłem",
+            "Konfiguruj urządzenia"
     };
 
 
@@ -112,7 +113,8 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemCli
                         startActivity(new Intent(getActivity(), LightActivity.class));
                         break;
                     case 5:
-                        //startActivity(new Intent(getActivity(), SettingsActivity.class));
+                        Toast.makeText(getContext(), "Niedostępne w obecnej wersji", Toast.LENGTH_SHORT).show();
+
                         break;
                 }
 

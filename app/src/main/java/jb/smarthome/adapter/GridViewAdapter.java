@@ -61,6 +61,8 @@ public class GridViewAdapter extends BaseAdapter {
             gridViewAndroid.setPadding(60, 60,60, 60);
             gridViewAndroid.setDrawingCacheBackgroundColor(mContext.getColor(R.color.colorGridIcon));
          gridViewAndroid.setBackgroundColor(mContext.getColor(R.color.colorGridBackground));
+         if(i==5)
+             gridViewAndroid.setBackgroundColor(mContext.getColor(R.color.common_google_signin_btn_text_light_disabled));
             gridViewAndroid.setElevation(5);
         } else {
             gridViewAndroid = (View) convertView;
