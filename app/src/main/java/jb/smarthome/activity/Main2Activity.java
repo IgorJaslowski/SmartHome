@@ -198,12 +198,39 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             public void run() {
                 while (true) {
                     gasSensor();
+                    fireSensor();
+                    motionSensor();
 
                     if (gasResponse.equals("1")) {
-                        System.out.println("Wykryto gaz" + gasResponse);
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ", "warning")));
+                        myRef.updateChildren(notify);
+
+
+                        try {
+                            sensorThread.sleep(15000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (fireResponse.equals("1")) {
+                        date = Calendar.getInstance().getTime();
+                        formattedDate = df.format(date);
+                        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto OGIEŃ", "warning")));
+                        myRef.updateChildren(notify);
+
+
+                        try {
+                            sensorThread.sleep(15000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (motionResponse) {
+                        date = Calendar.getInstance().getTime();
+                        formattedDate = df.format(date);
+                        notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto RUCH", "warning")));
                         myRef.updateChildren(notify);
 
 
