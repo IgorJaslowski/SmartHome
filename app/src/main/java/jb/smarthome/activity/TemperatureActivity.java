@@ -3,12 +3,17 @@ package jb.smarthome.activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import jb.smarthome.R;
 import jb.smarthome.RetrofitClientInstance;
 import jb.smarthome.adapter.TemperatureAdapter;
@@ -22,11 +27,19 @@ import retrofit2.Response;
 
 public class TemperatureActivity extends AppCompatActivity {
 
+    @BindView(R.id.temperatureAvg)
     TextView tempAvgTextView;
+    @BindView(R.id.humidityAvg)
     TextView humidityTextView;
+    @BindView(R.id.temperatureListView)
     ListView tempListView;
     private volatile boolean stop = false;
     Thread t1;
+    @BindView(R.id.partDisconnectedTemp)
+    LinearLayout partDisconnectedTemp;
+    @BindView(R.id.temperatureContent)
+    FrameLayout temperatureContent;
+
 
     @Override
     public void onDestroy() {
@@ -45,18 +58,10 @@ public class TemperatureActivity extends AppCompatActivity {
         stop = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature);
+        ButterKnife.bind(this);
 
 
-        tempAvgTextView = findViewById(R.id.temperatureAvg);
-
-
-        humidityTextView = findViewById(R.id.humidityAvg);
-
-
-        tempListView = findViewById(R.id.temperatureListView);
-
-
-       t1 = new Thread() {
+        t1 = new Thread() {
             @Override
             public void run() {
                 while (!stop) {
@@ -74,13 +79,14 @@ public class TemperatureActivity extends AppCompatActivity {
                             TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(), R.layout.adapter_temperature_view_layout, temperaturesList);
                             tempListView.setAdapter(adapter);
                             System.out.println("Pobrano temperature");
-
+                            partDisconnectedTemp.setVisibility(View.GONE);
+                            temperatureContent.setVisibility(View.VISIBLE);
                         }
 
                         @Override
                         public void onFailure(Call<TemperatureResponse> call, Throwable t) {
-                           // Toast.makeText(TemperatureActivity.this, "Brak połączenia z serwerem.", Toast.LENGTH_SHORT).show();
-
+                            temperatureContent.setVisibility(View.GONE);
+                            partDisconnectedTemp.setVisibility(View.VISIBLE);
                         }
 
                     });

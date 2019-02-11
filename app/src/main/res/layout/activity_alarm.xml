@@ -20,6 +20,10 @@
         android:text="Alarm"
         android:textColor="@color/colorFontWhite"
         android:textSize="20sp" />
+    <include
+        android:id="@+id/partDisconnectedAlarm"
+        layout="@layout/part_disconnected_error"
+        />
 
     <TextView
         android:id="@+id/textView3"
@@ -138,10 +142,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <include
-        android:id="@+id/disconnectedAlarm"
-        layout="@layout/part_disconnected_error"
-        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

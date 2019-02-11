@@ -95,6 +95,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
     String gasResponse = "0";
     String fireResponse = "0";
+    boolean motionResponse = false;
     Thread sensorThread;
     Date date;
     SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
@@ -192,7 +193,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         user = auth.getCurrentUser();
 
 
-
         sensorThread = new Thread() {
             @Override
             public void run() {
@@ -200,7 +200,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                     gasSensor();
 
                     if (gasResponse.equals("1")) {
-                        System.out.println("Wykryto gaz"+gasResponse);
+                        System.out.println("Wykryto gaz" + gasResponse);
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ", "warning")));
@@ -233,7 +233,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 gasResponse = response.body();
-                if(gasResponse == null){
+                if (gasResponse == null) {
                     gasResponse = "0";
                 }
 
@@ -263,6 +263,22 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         });
     }
 
+    private void motionSensor() {
+        SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
+        Call<Boolean> call = service.motionSensor();
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                motionResponse = response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                motionResponse = false;
+            }
+        });
+    }
 
 
     public void singOut() {
@@ -284,9 +300,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Log.d("Hello", "called navigation");
         int id = menuItem.getItemId();
-
-
-
 
 
         menuItem.setChecked(true);

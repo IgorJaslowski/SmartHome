@@ -20,8 +20,11 @@
         android:text="Temperatura i wilgotność"
         android:textColor="@color/colorFontWhite"
         android:textSize="20sp" />
-
+    <include
+        android:id="@+id/partDisconnectedTemp"
+        layout="@layout/part_disconnected_error" />
     <FrameLayout
+        android:id="@+id/temperatureContent"
         android:layout_width="match_parent"
         android:layout_height="185dp">
 
@@ -68,11 +71,5 @@
 
     </ListView>
 
-    <!--<TextView-->
-    <!--android:id="@+id/temperatureTextView"-->
-    <!--android:text="Temperatura wynosi :"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--tools:layout_editor_absoluteY="50dp" />-->
 
 </LinearLayout>

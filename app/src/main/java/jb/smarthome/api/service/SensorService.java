@@ -8,4 +8,6 @@ public interface SensorService {
     Call<String> gasSensor();
     @GET("/fireSensor")
     Call<String> fireSensor();
+    @GET("/motionSensor")
+    Call<Boolean> motionSensor();
 }

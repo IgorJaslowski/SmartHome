@@ -27,7 +27,7 @@ public class AlarmActivity extends AppCompatActivity {
     Button btnAlarmOff;
     @BindView(R.id.btnAlarm)
     Button btnAlarm;
-    @BindView(R.id.disconnectedAlarm)
+    @BindView(R.id.partDisconnectedAlarm)
     LinearLayout disconnectedLayout;
     @BindView(R.id.alarmControlLay)
     LinearLayout alarmControlLay;
