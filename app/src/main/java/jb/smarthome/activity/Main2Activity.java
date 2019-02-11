@@ -1,7 +1,9 @@
 package jb.smarthome.activity;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -43,6 +45,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -205,6 +208,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto GAZ", "warning")));
+                        showNotification(getApplicationContext(),"ZAGROŻENIE","Wykryto GAZ",getIntent());
                         myRef.updateChildren(notify);
 
 
@@ -218,6 +222,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto OGIEŃ", "warning")));
+                        showNotification(getApplicationContext(),"ZAGROŻENIE","Wykryto OGIEŃ",getIntent());
+
                         myRef.updateChildren(notify);
 
 
@@ -231,6 +237,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                         date = Calendar.getInstance().getTime();
                         formattedDate = df.format(date);
                         notify.put(formattedDate, new ArrayList<String>(Arrays.asList("Wykryto RUCH", "warning")));
+                        showNotification(getApplicationContext(),"ZAGROŻENIE","Wykryto RUCH",getIntent());
+
                         myRef.updateChildren(notify);
 
 
@@ -251,7 +259,9 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         };
         sensorThread.start();
 
+
     }
+
 
     private void gasSensor() {
         SensorService service = RetrofitClientInstance.getRetrofitInstance().create(SensorService.class);
@@ -358,6 +368,36 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
         }
         return false;
+    }
+
+    public void showNotification(Context context, String title, String body, Intent intent) {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int notificationId = 1;
+        String channelId = "jb.smarthome";
+        String channelName = "Smart Home";
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel(
+                    channelId, channelName, importance);
+            notificationManager.createNotificationChannel(mChannel);
+        }
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle(title)
+                .setContentText(body);
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        stackBuilder.addNextIntent(intent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
+                0,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+        mBuilder.setContentIntent(resultPendingIntent);
+
+        notificationManager.notify(notificationId, mBuilder.build());
     }
 
 
