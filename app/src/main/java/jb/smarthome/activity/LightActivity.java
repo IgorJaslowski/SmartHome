@@ -43,16 +43,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LightActivity extends AppCompatActivity {
-    @BindView(R.id.getAllLight)
-    TextView howMuchIsOn;
+
     @BindView(R.id.lightListView)
     ListView listView;
     @BindView(R.id.btnLightTurnAllOn)
     Button btnLightTurnAllOn;
     @BindView(R.id.btnLightTurnAllOff)
     Button btnLightTurnAllOff;
-    @BindView(R.id.part)
-    LinearLayout linearLayout;
+
     @BindView(R.id.lightContent)
     FrameLayout lightContent;
 
@@ -74,7 +72,6 @@ public class LightActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        howMuchIsOn.setText("3/4");
 
 
         final LightService service = RetrofitClientInstance.getRetrofitInstance().create(LightService.class);
@@ -87,15 +84,13 @@ public class LightActivity extends AppCompatActivity {
                 System.out.println(response.body().toString());
                 LightAdapter adapter = new LightAdapter(getBaseContext(), R.layout.adapter_light_view_layout, lightArrayList);
                 listView.setAdapter(adapter);
-                linearLayout.setVisibility(View.GONE);
                 lightContent.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onFailure(Call<LightResponse> call, Throwable t) {
                 Toast.makeText(LightActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-                lightContent.setVisibility(View.GONE);
-                linearLayout.setVisibility(View.VISIBLE);
+
 
             }
 

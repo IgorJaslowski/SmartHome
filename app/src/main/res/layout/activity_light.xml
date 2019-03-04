@@ -9,9 +9,7 @@
 android:background="@drawable/bg_gradient_green_blue"
 
     tools:context=".activity.LightActivity">
-    <include
-        android:id="@+id/part"
-        layout="@layout/part_disconnected_error" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"
@@ -53,30 +51,6 @@ android:background="@drawable/bg_gradient_green_blue"
                 android:orientation="vertical">
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/roboto_light"
-                    android:gravity="center"
-                    android:text="Zapalone światła"
-                    android:textColor="#ccc"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/getAllLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/roboto_black"
-                    android:gravity="center"
-                    android:text="3/5"
-                    android:textColor="@color/colorFontWhite"
-                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/textView5"

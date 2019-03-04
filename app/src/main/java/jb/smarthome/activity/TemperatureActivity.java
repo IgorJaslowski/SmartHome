@@ -35,8 +35,6 @@ public class TemperatureActivity extends AppCompatActivity {
     ListView tempListView;
     private volatile boolean stop = false;
     Thread t1;
-    @BindView(R.id.partDisconnectedTemp)
-    LinearLayout partDisconnectedTemp;
     @BindView(R.id.temperatureContent)
     FrameLayout temperatureContent;
 
@@ -79,14 +77,12 @@ public class TemperatureActivity extends AppCompatActivity {
                             TemperatureAdapter adapter = new TemperatureAdapter(getBaseContext(), R.layout.adapter_temperature_view_layout, temperaturesList);
                             tempListView.setAdapter(adapter);
                             System.out.println("Pobrano temperature");
-                            partDisconnectedTemp.setVisibility(View.GONE);
                             temperatureContent.setVisibility(View.VISIBLE);
                         }
 
                         @Override
                         public void onFailure(Call<TemperatureResponse> call, Throwable t) {
                             temperatureContent.setVisibility(View.GONE);
-                            partDisconnectedTemp.setVisibility(View.VISIBLE);
                         }
 
                     });

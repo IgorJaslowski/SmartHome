@@ -25,8 +25,7 @@ public class AlarmActivity extends AppCompatActivity {
     Button btnAlarmOn;
     @BindView(R.id.btnAlarmOff)
     Button btnAlarmOff;
-    @BindView(R.id.btnAlarm)
-    Button btnAlarm;
+
     @BindView(R.id.partDisconnectedAlarm)
     LinearLayout disconnectedLayout;
     @BindView(R.id.alarmControlLay)
@@ -83,38 +82,6 @@ public class AlarmActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
             }
         });
-    }
-    @OnClick(R.id.btnAlarm)
-    void alarmNow() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Czy napewno chcesz uruchomić alarm?")
-                .setCancelable(false)
-                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        final AlarmService service = RetrofitClientInstance.getRetrofitInstance().create(AlarmService.class);
-                        Call<Void> call = service.alarm();
-                        call.enqueue(new Callback<Void>() {
-                            @Override
-                            public void onResponse(Call<Void> call, Response<Void> response) {
-                            }
-
-                            @Override
-                            public void onFailure(Call<Void> call, Throwable t) {
-                            }
-                        });
-                    }
-                })
-                .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-
     }
 
 }
